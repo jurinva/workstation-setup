@@ -1,16 +1,19 @@
 #!/bin/bash
 
 # Install Tools
-apt-get -y install mc traceroute nmap fping ansible sshpass remmina vinagre curl \
+sudo apt-get -y install mc traceroute nmap fping ansible sshpass remmina vinagre curl \
   openxenmanager gitg sqlite3 lm-sensors gparted dosbox bumblebee
 
 # Install VirtualBox
-apt-get -y install libsdl1.2debian
-curl --progress-bar -L -o/tmp/virtualbox.deb https://download.virtualbox.org/virtualbox/5.2.18/virtualbox-5.2_5.2.18-124319~Ubuntu~xenial_amd64.deb && dpkg -i /tmp/virtualbox.deb
+sudo apt-get -y install libsdl1.2debian
+curl --progress-bar -L -o/tmp/virtualbox.deb https://download.virtualbox.org/virtualbox/5.2.18/virtualbox-5.2_5.2.18-124319~Ubuntu~xenial_amd64.deb && sudo dpkg -i /tmp/virtualbox.deb
 
 # Install Slack
-apt-get -y install libappindicator1
-curl --progress-bar -L -o/tmp/slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.1-amd64.deb && dpkg -i /tmp/slack.deb
+sudo apt-get -y install libappindicator1
+curl --progress-bar -L -o/tmp/slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.1-amd64.deb && sudo dpkg -i /tmp/slack.deb
+
+# Install Atom
+curl --progress-bar -L -o/tmp/atom.deb "https://atom.io/download/deb" && sudo dpkg -i /tmp/atom.deb
 
 # Install Telegram
 #wget "https://telegram.org/dl/desktop/linux"
