@@ -4,7 +4,7 @@ function Uinstall() {
 # Install Tools
   echo "install Tools"
   sudo apt-get -y install mc traceroute nmap fping ansible sshpass remmina vinagre curl \
-  openxenmanager gitg sqlite3 lm-sensors gparted dosbox bumblebee
+  openxenmanager gitg sqlite3 lm-sensors gparted dosbox vlc-nox
 
 # Install VirtualBox
   echo "install VirtualBox"
@@ -16,12 +16,16 @@ function Uinstall() {
   sudo apt-get -y install libappindicator1
   curl --progress-bar -L -o/tmp/slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.1-amd64.deb && sudo dpkg -i /tmp/slack.deb
 
-# Install Atom
-  echo "install Atom"
-  curl --progress-bar -L -o/tmp/atom.deb "https://atom.io/download/deb" && sudo dpkg -i /tmp/atom.deb
+# Install Skype
+echo "Install Skype"
+curl --progress-bar -L -o/tmp/skypeforlinux-64.deb "https://go.skype.com/skypeforlinux-64.deb" && sudo dpkg -i /tmp/skypeforlinux-64.deb
 
 # Install Telegram
 #  wget "https://telegram.org/dl/desktop/linux"
+
+# Install Atom
+  echo "install Atom"
+  curl --progress-bar -L -o/tmp/atom.deb "https://atom.io/download/deb" && sudo dpkg -i /tmp/atom.deb
 
 # Install Wine
   echo "install Wine"
