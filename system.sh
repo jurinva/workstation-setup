@@ -4,7 +4,7 @@ function Uinstall() {
 # Install Tools
   echo "install Tools"
   sudo apt-get -y install mc traceroute nmap fping ansible sshpass remmina vinagre curl \
-  openxenmanager gitg sqlite3 lm-sensors gparted dosbox vlc-nox
+  openxenmanager gitg sqlite3 lm-sensors gparted dosbox vlc
 
 # Install VirtualBox
   echo "install VirtualBox"
