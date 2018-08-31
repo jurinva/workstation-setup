@@ -7,6 +7,10 @@ function Uinstall() {
   openxenmanager gitg sqlite3 lm-sensors gparted dosbox vlc mysql-workbench \
   gimp qmmp
 
+# Install Chrome
+  echo "Install Chrome"
+  curl --progress-bar -L -o/tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo dpkg -i /tmp/chrome.deb
+
 # Install VirtualBox
   echo "install VirtualBox"
   sudo apt-get -y install libsdl1.2debian
