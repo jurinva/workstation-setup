@@ -4,12 +4,16 @@ function Uinstall() {
 # Install Tools
   echo "install Tools"
   sudo apt-get -y install \
-  whois wireshark-qt mc traceroute nmap fping \ # network tools
-  ansible sshpass remmina vinagre curl \        # remote tools
-  gitg sqlite3 dosbox \                         # development
-  openxenmanager mysql-workbench \              # system administration
-  lm-sensors gparted \                          # local tools
-  gimp vlc qmmp brasero                         # user tools
+  whois wireshark-qt mc traceroute nmap fping \            # network tools
+  ansible sshpass remmina vinagre curl \                   # remote tools
+  gitg sqlite3 dosbox \       # development
+  python-setuptools python-dev freetds-dev \
+  openxenmanager mysql-workbench \                         # system administration
+  lm-sensors gparted \                                     # local tools
+  gimp vlc qmmp brasero                                    # user tools
+
+# EasyInstall
+  sudo easy_install --upgrade pymssql
 
 # Install Chrome
   echo "Install Chrome"
