@@ -3,13 +3,17 @@
 function Uinstall() {
 # Install Tools
   echo "install Tools"
-  sudo apt-get -y install mc traceroute nmap fping ansible sshpass remmina vinagre curl \
+  sudo apt-get -y install whois mc traceroute nmap fping ansible sshpass remmina vinagre curl \
   openxenmanager gitg sqlite3 lm-sensors gparted dosbox vlc mysql-workbench \
   gimp qmmp
 
 # Install Chrome
   echo "Install Chrome"
   curl --progress-bar -L -o/tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo dpkg -i /tmp/chrome.deb
+
+# Istall Yandex.Browser
+  echo "Install Yandex.Browser"
+  curl --progress-bar -L https://cache-mskm901.cdn.yandex.net/download.cdn.yandex.net/browser/yandex/ru/beta/Yandex.deb && sudo dpkg -i /tmp/Yandex.deb
 
 # Install VirtualBox
   echo "install VirtualBox"
