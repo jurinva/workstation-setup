@@ -15,7 +15,7 @@ function Uinstall() {
   echo "Install Chrome"
   curl --progress-bar -L -o/tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo dpkg -i /tmp/chrome.deb
 
-# Istall Yandex.Browser
+# Install Yandex.Browser
   echo "Install Yandex.Browser"
   curl --progress-bar -L https://cache-mskm901.cdn.yandex.net/download.cdn.yandex.net/browser/yandex/ru/beta/Yandex.deb && sudo dpkg -i /tmp/Yandex.deb
 
@@ -30,8 +30,8 @@ function Uinstall() {
   curl --progress-bar -L -o/tmp/slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.1-amd64.deb && sudo dpkg -i /tmp/slack.deb
 
 # Install Skype
-echo "Install Skype"
-curl --progress-bar -L -o/tmp/skypeforlinux-64.deb "https://go.skype.com/skypeforlinux-64.deb" && sudo dpkg -i /tmp/skypeforlinux-64.deb
+  echo "Install Skype"
+  curl --progress-bar -L -o/tmp/skypeforlinux-64.deb "https://go.skype.com/skypeforlinux-64.deb" && sudo dpkg -i /tmp/skypeforlinux-64.deb
 
 # Install Telegram
 #  wget "https://telegram.org/dl/desktop/linux"
@@ -39,6 +39,11 @@ curl --progress-bar -L -o/tmp/skypeforlinux-64.deb "https://go.skype.com/skypefo
 # Install Atom
   echo "install Atom"
   curl --progress-bar -L -o/tmp/atom.deb "https://atom.io/download/deb" && sudo dpkg -i /tmp/atom.deb
+
+# Install Powershell
+  echo "Install Powershell"
+  sudo apt install liblttng-ust0
+  curl --progress-bar -L -o/tmp/powershell.deb https://github.com/PowerShell/PowerShell/releases/download/v6.0.4/powershell_6.0.4-1.ubuntu.16.04_amd64.deb && sudo dpkg -i /tmp/powershell.deb
 
 # Install Wine
   echo "install Wine"
