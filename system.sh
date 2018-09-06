@@ -12,6 +12,12 @@ function Uinstall() {
   lm-sensors gparted \                                     # local tools
   gimp vlc qmmp brasero                                    # user tools
 
+# Install Lazarus
+  sudo apt-get install libgtk2.0-dev
+  curl --progress-bar -L -o/tmp/lazarus.deb "https://datapacket.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%201.8.4/lazarus-project_1.8.4-0_amd64.deb" && sudo dpkg -i /tmp/lazarus.deb
+  curl --progress-bar -L -o/tmp/fpc.deb "https://datapacket.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%201.8.4/fpc_3.0.4-3_amd64.deb" && sudo dpkg -i /tmp/fpc.deb
+  curl --progress-bar -L -o/tmp/fpc-src.deb "https://netcologne.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%201.8.4/fpc-src_3.0.4-2_amd64.deb" && sudo dpkg -i /tmp/fpc-src.deb /tmp/fpc.deb /tmp/lazarus.deb
+
 # EasyInstall
   sudo easy_install --upgrade pymssql
 
