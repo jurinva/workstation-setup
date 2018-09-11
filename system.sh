@@ -4,7 +4,7 @@ function Uinstall() {
 # Install Tools
   echo "install Tools"
   sudo apt-get -y install \
-  whois wireshark-qt mc traceroute nmap fping \            # network tools
+  whois wireshark-qt mc traceroute nmap fping iperf iperf3 \            # network tools
   ansible sshpass remmina vinagre curl \                   # remote tools
   gitg sqlite3 dosbox \       # development
   python-setuptools python-dev freetds-dev \
