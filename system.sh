@@ -55,6 +55,9 @@ function Uinstall() {
   sudo apt install liblttng-ust0
   curl --progress-bar -L -o/tmp/powershell.deb https://github.com/PowerShell/PowerShell/releases/download/v6.0.4/powershell_6.0.4-1.ubuntu.16.04_amd64.deb && sudo dpkg -i /tmp/powershell.deb
 
+# Install Draw.io
+  curl --progress-bar -L -o/tmp/drawio.deb https://github.com/jgraph/drawio-desktop/releases/download/v8.8.0/draw.io-amd64-8.8.0.deb && sudo dpkg -i /tmp/drawio.deb
+
 # Install Wine
   echo "install Wine"
   sudo dpkg --add-architecture i386
