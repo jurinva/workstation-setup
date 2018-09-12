@@ -5,12 +5,12 @@ function Uinstall() {
   echo "install Tools"
   sudo apt-get -y install \
   whois wireshark-qt mc traceroute nmap fping iperf iperf3 \            # network tools
-  ansible sshpass remmina vinagre curl \                   # remote tools
-  gitg sqlite3 dosbox \       # development
+  ansible sshpass vinagre curl \                                        # remote tools
+  gitg sqlite3 dosbox \                                                 # development
   python-setuptools python-dev freetds-dev \
-  openxenmanager mysql-workbench \                         # system administration
-  lm-sensors gparted \                                     # local tools
-  gimp vlc qmmp brasero                                    # user tools
+  openxenmanager mysql-workbench \                                      # system administration
+  lm-sensors gparted \                                                  # local tools
+  gimp vlc qmmp brasero                                                 # user tools
 
 # Install Lazarus
   sudo apt-get install libgtk2.0-dev
@@ -45,6 +45,11 @@ function Uinstall() {
 
 # Install Telegram
 #  wget "https://telegram.org/dl/desktop/linux"
+
+# Install Remmina
+  sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
+  sudo apt-get update
+  sudo apt-get install remmina remmina-plugin-rdp libfreerdp-plugins-standard
 
 # Install Atom
   echo "install Atom"
