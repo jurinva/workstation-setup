@@ -55,7 +55,18 @@ function Uinstall() {
   sudo apt install liblttng-ust0
   curl --progress-bar -L -o/tmp/powershell.deb https://github.com/PowerShell/PowerShell/releases/download/v6.0.4/powershell_6.0.4-1.ubuntu.16.04_amd64.deb && sudo dpkg -i /tmp/powershell.deb
 
+# Install Docker CE
+  echo "Install Docker CE"
+  sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  sudo apt-key fingerprint 0EBFCD88
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  sudo apt-get update
+  sudo apt-get -y install docker-ce
+  sudo adduser $USER docker
+
 # Install Draw.io
+  echo "Install Draw.io"
   curl --progress-bar -L -o/tmp/drawio.deb https://github.com/jgraph/drawio-desktop/releases/download/v8.8.0/draw.io-amd64-8.8.0.deb && sudo dpkg -i /tmp/drawio.deb
 
 # Install Wine
@@ -65,7 +76,7 @@ function Uinstall() {
   sudo apt-key add Release.key
   sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
   sudo apt-get update
-  sudo apt-get install --install-recommends winehq-stable
+  sudo apt-get -y install --install-recommends winehq-stable
 
 # Tweaks
   echo "install "
@@ -76,12 +87,12 @@ function Uinstall() {
   echo "Install Sensors indicator"
   sudo add-apt-repository ppa:jfi/ppa
   sudo apt-get update
-  sudo apt-get install psensor
+  sudo apt-get -y install psensor
 ## Weather
   echo "Install Weather indicator"
   sudo add-apt-repository ppa:atareao/atareao
   sudo apt-get update
-  sudo apt-get install my-weather-indicator
+  sudo apt-get -y install my-weather-indicator
 ## Yandex disk
   echo "Install Yandex Disk"
   wget http://repo.yandex.ru/yandex-disk/yandex-disk_latest_amd64.deb
@@ -89,7 +100,7 @@ function Uinstall() {
   yandex-disk setup
   sudo add-apt-repository ppa:slytomcat/ppa
   sudo apt-get update
-  sudo apt-get install yd-tools
+  sudo apt-get -y install yd-tools
 }
 
 if [ `cat /etc/issue.net | cut -d' ' -f1` == 'Ubuntu' ]; then
