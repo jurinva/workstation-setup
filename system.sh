@@ -5,12 +5,12 @@ function Uinstall() {
   echo "install Tools"
   sudo apt-get -y install \
   whois wireshark-qt mc traceroute nmap fping iperf iperf3 \            # network tools
-  ansible sshpass remmina vinagre curl \                   # remote tools
-  gitg sqlite3 dosbox \       # development
+  ansible sshpass remmina vinagre curl snmp                             # remote tools
+  gitg sqlite3 dosbox \                                                 # development
   python-setuptools python-dev freetds-dev \
-  openxenmanager mysql-workbench \                         # system administration
-  lm-sensors gparted gsmartcontrol \                       # local tools
-  gimp vlc qmmp brasero                                    # user tools
+  openxenmanager mysql-workbench \                                      # system administration
+  lm-sensors gparted gsmartcontrol openssh-server \                                    # local tools
+  gimp vlc qmmp brasero                                                 # user tools
 
 # Install Lazarus
   sudo apt-get install libgtk2.0-dev
