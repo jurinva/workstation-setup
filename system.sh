@@ -82,7 +82,7 @@ function Uinstall() {
   echo "Install Andrion-studio"
   sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
   curl --progress-bar -L -o/tmp/android-studio.zip https://dl.google.com/dl/android/studio/ide-zips/3.2.0.26/android-studio-ide-181.5014246-linux.zip
-  unzip /tmp/android-studio.zip -d /usr/local/
+  sudo unzip /tmp/android-studio.zip -d /opt/
 
 # Tweaks
   echo "install "
