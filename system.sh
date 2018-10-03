@@ -13,12 +13,14 @@ function Uinstall() {
   gimp vlc qmmp brasero                                                 # user tools
 
 # Install Lazarus
+  echo "Install Lazarus"
   sudo apt-get install libgtk2.0-dev
   curl --progress-bar -L -o/tmp/lazarus.deb "https://datapacket.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%201.8.4/lazarus-project_1.8.4-0_amd64.deb" && sudo dpkg -i /tmp/lazarus.deb
   curl --progress-bar -L -o/tmp/fpc.deb "https://datapacket.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%201.8.4/fpc_3.0.4-3_amd64.deb" && sudo dpkg -i /tmp/fpc.deb
   curl --progress-bar -L -o/tmp/fpc-src.deb "https://netcologne.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%201.8.4/fpc-src_3.0.4-2_amd64.deb" && sudo dpkg -i /tmp/fpc-src.deb /tmp/fpc.deb /tmp/lazarus.deb
 
 # EasyInstall
+  echo "Install Python modules"
   sudo easy_install --upgrade pymssql
 
 # Install Chrome
@@ -85,8 +87,13 @@ function Uinstall() {
   sudo unzip /tmp/android-studio.zip -d /opt/
 
 # Tweaks
-  echo "install "
+  echo "install Tweaks"
   sudo apt-get -y install compizconfig-settings-manager
+
+# Teamviewer
+  echo "Install Teamviewer"
+  sudo apt install qtdeclarative5-controls-plugin qml-module-qtquick-controls qml-module-qtquick-dialogs qtdeclarative5-dialogs-plugin
+  curl --progress-bar -L -o/tmp/teamviewer_amd64.deb https://download.teamviewer.com/download/linux/teamviewer_amd64.deb && sudo dpkg -i /tmp/teamviewer_amd64.deb
 
 # Install indicators
 ## System sensors
