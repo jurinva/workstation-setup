@@ -4,12 +4,12 @@ function Uinstall() {
 # Install Tools
   echo "install Tools"
   sudo apt-get -y install \
-  whois wireshark-qt mc traceroute nmap fping iperf iperf3 \            # network tools
+  whois wireshark-qt mc traceroute nmap fping iperf iperf3 zenmap p0f \            # network tools
   ansible sshpass remmina vinagre curl snmp                             # remote tools
   gitg sqlite3 dosbox \                                                 # development
   python-setuptools python-dev freetds-dev python-redis \
-  openxenmanager mysql-workbench \                                      # system administration
-  lm-sensors gparted gsmartcontrol openssh-server \                                    # local tools
+  openxenmanager mysql-workbench gvncviewer \                                      # system administration
+  lm-sensors gparted gsmartcontrol openssh-server gtkterm \                                    # local tools
   gimp vlc qmmp brasero                                                 # user tools
 
 # Install Lazarus
