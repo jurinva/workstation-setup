@@ -10,7 +10,7 @@ function Uinstall() {
   python-setuptools python-dev freetds-dev python-redis \
   openxenmanager mysql-workbench gvncviewer \                                      # system administration
   lm-sensors gparted gsmartcontrol openssh-server gtkterm \                                    # local tools
-  gimp vlc qmmp brasero                                                 # user tools
+  gimp vlc qmmp brasero hplip-gui winetricks                                               # user tools
 
 # Install Lazarus
   echo "Install Lazarus"
