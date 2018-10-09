@@ -10,7 +10,7 @@ function Uinstall() {
   python-setuptools python-dev freetds-dev python-redis \
   openxenmanager mysql-workbench gvncviewer \                                      # system administration
   lm-sensors gparted gsmartcontrol openssh-server gtkterm \                                    # local tools
-  gimp vlc qmmp brasero hplip-gui winetricks                                               # user tools
+  gimp vlc qmmp brasero hplip-gui winetricks unrar                                              # user tools
 
 # Install Lazarus
   echo "Install Lazarus"
@@ -94,6 +94,15 @@ function Uinstall() {
   echo "Install Teamviewer"
   sudo apt install qtdeclarative5-controls-plugin qml-module-qtquick-controls qml-module-qtquick-dialogs qtdeclarative5-dialogs-plugin
   curl --progress-bar -L -o/tmp/teamviewer_amd64.deb https://download.teamviewer.com/download/linux/teamviewer_amd64.deb && sudo dpkg -i /tmp/teamviewer_amd64.deb
+
+# vSphere Client
+#  echo "vSphere Client"
+#  curl --progress-bar -L -o/home/$USER/.cache/winetricks/msxml3/msxml3.msi "https://files.downloadnow.com/s/software/10/73/16/12/msxml3.msi?token=1539025396_6ee0a7f508da5666cc2c7781551c8e4e&fileName=msxml3.msi"
+#  WINEPREFIX="/home/$USER/wine32" WINEARCH=win32 winetricks vcrun2005 vcrun2008 vcrun2010 vjrun20
+#  curl --progress-bar -L -o/tmp/dotnetfx35.exe "http://download.microsoft.com/download/6/0/f/60fc5854-3cb8-4892-b6db-bd4f42510f28/dotnetfx35.exe"
+#  WINEPREFIX="/home/$USER/wine32" WINEARCH=win32 wine /tmp/dotnetfx35.exe
+#  curl --progress-bar -L -o/tmp/VMware-viclient-all-5.1.0-786111.exe "http://vsphereclient.vmware.com/vsphereclient/7/8/6/1/1/1/VMware-viclient-all-5.1.0-786111.exe"
+  
 
 # Install indicators
 ## System sensors
