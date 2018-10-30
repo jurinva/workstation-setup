@@ -68,6 +68,12 @@ function Uinstall() {
   sudo apt-get -y install docker-ce
   sudo adduser $USER docker
 
+# Install Project Atomic
+  echo "Install Project Atomic"
+  sudo add-apt-repository ppa:projectatomic/ppa
+  sudo apt-get update
+  sudo apt-get -y podman
+
 # Install Draw.io
   echo "Install Draw.io"
   curl --progress-bar -L -o/tmp/drawio.deb https://github.com/jgraph/drawio-desktop/releases/download/v8.8.0/draw.io-amd64-8.8.0.deb && sudo dpkg -i /tmp/drawio.deb
