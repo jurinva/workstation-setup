@@ -5,13 +5,19 @@ function Uinstall() {
   echo "install Tools"
   sudo apt-get -y install \
   whois wireshark-qt mc traceroute nmap fping iperf iperf3 zenmap p0f \            # network tools
-  ansible sshpass remmina vinagre curl snmp                                        # remote tools
-  gitg sqlite3 dosbox \                                                            # development
+  ansible sshpass remmina vinagre curl snmp \                                      # remote tools
+  gitg sqlite3 dosbox arduino \                                                    # development
   python-setuptools python-dev freetds-dev python-redis \
   openxenmanager mysql-workbench gvncviewer \                                      # system administration
   lm-sensors gparted gsmartcontrol openssh-server gtkterm \                        # local tools
-  binwalk u-boot-tools                                                             # firmware tools
-  gimp vlc qmmp brasero hplip-gui winetricks unrar default-jre icedtea-plugin      # user tools
+  binwalk u-boot-tools \                                                           # firmware tools
+  gimp vlc qmmp brasero hplip-gui winetricks unrar default-jre icedtea-plugin \    # user tools
+  stellarium
+
+# Install Celestia
+#  sudo apt install libjpeg62
+#  curl --progress-bar -L -o/tmp/celestia.package https://celestia.space/cc/celestia-linux-151 && sudo bash /tmp/celestia.package
+#  sudo apt install celestia-common-nonfree
 
 # Install Lazarus
   echo "Install Lazarus"
