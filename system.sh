@@ -15,9 +15,12 @@ function Uinstall() {
   stellarium
 
 # Install Celestia
-#  sudo apt install libjpeg62
-#  curl --progress-bar -L -o/tmp/celestia.package https://celestia.space/cc/celestia-linux-151 && sudo bash /tmp/celestia.package
-#  sudo apt install celestia-common-nonfree
+  sudo apt -y install liblua5.1-0
+# May be that packages will be needed freeglut3 libgtkglext1 libgnome2-0 libgnomeui-0
+  curl --progress-bar -L -o/tmp/celestia-common.deb http://nux87.free.fr/script-postinstall-ubuntu/deb/celestia-common1.6.1all.deb
+  curl --progress-bar -L -o/tmp/celestia-gnome.deb http://nux87.free.fr/script-postinstall-ubuntu/deb/celestia-gnome1.6.1amd64.deb
+  dpkg -i celestia*
+  sudo apt install celestia-common-nonfree
 
 # Install Lazarus
   echo "Install Lazarus"
