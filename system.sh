@@ -1,5 +1,11 @@
 #!/bin/bash
 
+ubuntuversion="16.04"
+
+function github-latest-release() {
+  curl --silent "https://api.github.com/repos/PowerShell/PowerShell/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | tr -d "v"
+}
+
 function Uinstall() {
 # Install Tools
   echo "install Tools \033[0m"
@@ -65,7 +71,9 @@ function Uinstall() {
 # Install Powershell
   echo -en "\033[37;1;41m Install Powershell \033[37;1;41m"
   sudo apt install liblttng-ust0
-  curl --progress-bar -L -o/tmp/powershell.deb https://github.com/PowerShell/PowerShell/releases/download/v6.0.4/powershell_6.0.4-1.ubuntu.16.04_amd64.deb && sudo dpkg -i /tmp/powershell.deb
+  githubrepo="PowerShell/PowerShell"
+  githubrelease=`github-latest-release $githubrepo` #(v.6.0.4)
+  curl --progress-bar -L -o/tmp/powershell.deb https://github.com/$githubrepo/releases/download/v$githubrelease/powershell_$githubrelease-1.ubuntu.$ubuntuversion_amd64.deb && sudo dpkg -i /tmp/powershell.deb
 
 # Install Docker CE
   echo -en "\033[37;1;41m Install Docker CE \033[0m"
@@ -85,7 +93,9 @@ function Uinstall() {
 
 # Install Draw.io
   echo -en "\033[37;1;41m Install Draw.io \033[0m"
-  curl --progress-bar -L -o/tmp/drawio.deb https://github.com/jgraph/drawio-desktop/releases/download/v8.8.0/draw.io-amd64-8.8.0.deb && sudo dpkg -i /tmp/drawio.deb
+  githubrepo="jgraph/drawio-desktop"
+  githubrelease=`github-latest-release $githubrepo` #(v.8.8.0)
+  curl --progress-bar -L -o/tmp/drawio.deb https://github.com/$githubrepo/releases/download/v$githubrelease/draw.io-amd64-$githubrelease.deb && sudo dpkg -i /tmp/drawio.deb
 
 # Install Wine
   echo -en "\033[37;1;41m install Wine \033[0m"
@@ -140,6 +150,7 @@ function Uinstall() {
   sudo apt-get update
   sudo apt-get -y install yd-tools
 }
+
 
 if [ `cat /etc/issue.net | cut -d' ' -f1` == 'Ubuntu' ]; then
   Uinstall
