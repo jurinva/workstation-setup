@@ -143,8 +143,7 @@ function Uinstall() {
   sudo apt-get -y install my-weather-indicator
 ## Yandex disk
   echo -en "\033[37;1;41m Install Yandex Disk \033[0m"
-  wget http://repo.yandex.ru/yandex-disk/yandex-disk_latest_amd64.deb
-  sudo dpkg -i yandex-disk_latest_amd64.deb
+  curl --progress-bar -L -o/tmp/yandex-disk_latest_amd64.deb http://repo.yandex.ru/yandex-disk/yandex-disk_latest_amd64.deb && sudo dpkg -i yandex-disk_latest_amd64.deb
   yandex-disk setup
   sudo add-apt-repository ppa:slytomcat/ppa
   sudo apt-get update
