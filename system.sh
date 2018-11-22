@@ -72,7 +72,7 @@ function Uinstall() {
   echo -en "\033[37;1;41m Install Powershell \033[37;1;41m"
   sudo apt install liblttng-ust0
   githubrepo="PowerShell/PowerShell"
-  githubrelease=`github-latest-release $githubrepo` #(v.6.0.4)
+  githubrelease=$(github-latest-release $githubrepo) #(v.6.0.4)
   curl --progress-bar -L -o/tmp/powershell.deb https://github.com/$githubrepo/releases/download/v$githubrelease/powershell_$githubrelease-1.ubuntu.$ubuntuversion_amd64.deb && sudo dpkg -i /tmp/powershell.deb
 
 # Install Docker CE
@@ -94,7 +94,7 @@ function Uinstall() {
 # Install Draw.io
   echo -en "\033[37;1;41m Install Draw.io \033[0m"
   githubrepo="jgraph/drawio-desktop"
-  githubrelease=`github-latest-release $githubrepo` #(v.8.8.0)
+  githubrelease=$(github-latest-release $githubrepo) #(v.8.8.0)
   curl --progress-bar -L -o/tmp/drawio.deb https://github.com/$githubrepo/releases/download/v$githubrelease/draw.io-amd64-$githubrelease.deb && sudo dpkg -i /tmp/drawio.deb
 
 # Install Wine
