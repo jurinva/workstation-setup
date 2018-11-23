@@ -18,7 +18,7 @@ function Uinstall() {
   lm-sensors gparted gsmartcontrol openssh-server gtkterm \                        # local tools
   binwalk u-boot-tools \                                                           # firmware tools
   gimp vlc qmmp brasero hplip-gui winetricks unrar default-jre icedtea-plugin \    # user tools
-  stellarium
+  stellarium filezilla
 
 # Install Celestia
   sudo apt -y install liblua5.1-0
