@@ -11,7 +11,7 @@ function Uinstall() {
   echo "install Tools \033[0m"
   sudo apt-get -y install \
   whois wireshark-qt mc traceroute nmap fping iperf iperf3 zenmap p0f \            # network tools
-  ansible sshpass remmina vinagre curl snmp \                                      # remote tools
+  sshpass remmina vinagre curl snmp \                                      # remote tools
   gitg sqlite3 dosbox arduino \                                                    # development
   python-setuptools python-dev freetds-dev python-redis \
   openxenmanager mysql-workbench gvncviewer \                                      # system administration
@@ -20,7 +20,12 @@ function Uinstall() {
   gimp vlc qmmp brasero hplip-gui winetricks unrar default-jre icedtea-plugin \    # user tools
   stellarium filezilla
 
+# Install Ansible
+  echo "Install ansible"
+  sudo add-apt-repository ppa:ansible/ansible && sudo apt update && sudo apt -y install ansible
+
 # Install Celestia
+  echo "Install Celestia"
   sudo apt -y install liblua5.1-0
 # May be that packages will be needed freeglut3 libgtkglext1 libgnome2-0 libgnomeui-0
   curl --progress-bar -L -o/tmp/celestia-common.deb http://nux87.free.fr/script-postinstall-ubuntu/deb/celestia-common1.6.1all.deb
