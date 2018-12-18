@@ -54,7 +54,9 @@ function Uinstall() {
 #  curl --progress-bar -L -o/tmp/skypeforlinux-64.deb "https://go.skype.com/skypeforlinux-64.deb" && sudo dpkg -i /tmp/skypeforlinux-64.deb
 
 # Install Telegram
-#  wget "https://telegram.org/dl/desktop/linux"
+  echo -en "\033[37;1;41m install Telegram \033[37;1;41m"
+  curl --progress-bar -L -o ~/Downloads/telegram.tar.xz https://telegram.org/dl/desktop/linux
+  tar -xpJf ./tsetup.tar.xz
 
 # Install Atom
   echo -en "\033[37;1;41m install Atom \033[37;1;41m"
