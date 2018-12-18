@@ -50,7 +50,7 @@ function Uinstall() {
 
 # Install Yandex.Browser
   echo -en "\033[37;1;41m Install Yandex.Browser \033[0m"
-  curl --progress-bar -L https://cache-mskm901.cdn.yandex.net/download.cdn.yandex.net/browser/yandex/ru/beta/Yandex.deb && sudo dpkg -i /tmp/Yandex.deb
+  curl --progress-bar -L -ohttps://cache-mskm901.cdn.yandex.net/download.cdn.yandex.net/browser/yandex/ru/beta/Yandex.deb && sudo dpkg -i /tmp/Yandex.deb
 
 # Install VirtualBox
   echo -en "\033[37;1;41m install VirtualBox \033[0m"
