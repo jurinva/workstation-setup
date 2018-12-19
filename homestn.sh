@@ -24,6 +24,10 @@ function Uinstall() {
   echo "Install ansible"
   sudo add-apt-repository ppa:ansible/ansible && sudo apt update && sudo apt -y install ansible
 
+# Install Gitkraken
+  echo -en "\033[37;1;41m Install Gitkraken \033[0m"
+  curl --progress-bar -L -o/tmp/gitkraken.deb "https://release.gitkraken.com/linux/gitkraken-amd64.deb" && sudo dpkg -i /tmp/gitkraken.deb
+
 # Install Celestia
   echo "Install Celestia"
   sudo apt -y install liblua5.1-0

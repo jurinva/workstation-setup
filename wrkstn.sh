@@ -24,8 +24,12 @@ function Uinstall() {
   sudo apt-get -y install gimp vlc qmmp brasero hplip-gui unrar default-jre icedtea-plugin filezilla
 
 # Install Ansible
-  echo -en "\033[37;1;41m Install ansible"
+  echo -en "\033[37;1;41m Install ansible \033[0m"
   sudo add-apt-repository -y ppa:ansible/ansible && sudo apt update && sudo apt -y install ansible
+
+# Install Gitkraken
+  echo -en "\033[37;1;41m Install Gitkraken \033[0m"
+  curl --progress-bar -L -o/tmp/gitkraken.deb "https://release.gitkraken.com/linux/gitkraken-amd64.deb" && sudo dpkg -i /tmp/gitkraken.deb
 
 # EasyInstall
 #  echo -en "\033[37;1;41m Install Python modules \033[0m"
