@@ -109,14 +109,10 @@ function Uinstall() {
 #  sudo apt install qtdeclarative5-controls-plugin qml-module-qtquick-controls qml-module-qtquick-dialogs qtdeclarative5-dialogs-plugin
 #  curl --progress-bar -L -o/tmp/teamviewer_amd64.deb https://download.teamviewer.com/download/linux/teamviewer_amd64.deb && sudo dpkg -i /tmp/teamviewer_amd64.deb
 
-# vSphere Client
-#  echo -en "\033[37;1;41m vSphere Client \033[0m"
-#  curl --progress-bar -L -o/home/$USER/.cache/winetricks/msxml3/msxml3.msi "https://files.downloadnow.com/s/software/10/73/16/12/msxml3.msi?token=1539025396_6ee0a7f508da5666cc2c7781551c8e4e&fileName=msxml3.msi"
-#  WINEPREFIX="/home/$USER/wine32" WINEARCH=win32 winetricks vcrun2005 vcrun2008 vcrun2010 vjrun20
-#  curl --progress-bar -L -o/tmp/dotnetfx35.exe "http://download.microsoft.com/download/6/0/f/60fc5854-3cb8-4892-b6db-bd4f42510f28/dotnetfx35.exe"
-#  WINEPREFIX="/home/$USER/wine32" WINEARCH=win32 wine /tmp/dotnetfx35.exe
-#  curl --progress-bar -L -o/tmp/VMware-viclient-all-5.1.0-786111.exe "http://vsphereclient.vmware.com/vsphereclient/7/8/6/1/1/1/VMware-viclient-all-5.1.0-786111.exe"
-
+# Install Sk1
+  echo -en "\033[37;1;41m Install Sk1 \033[0m"
+  sudo apt -y install python-cups python-renderpm python-reportlab python-reportlab-accel python-wxgtk3.0 python-wxversion
+  curl --progress-bar -L -o/tmp/sk1.deb "https://sk1project.net/dc3.php?version=2.0rc3&target=python-sk1-2.0rc3_ubuntu_16.04_amd64.deb " && sudo dpkg -i /tmp/sk1.deb
 
 # Install indicators
 ## System sensors

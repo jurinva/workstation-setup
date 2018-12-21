@@ -123,6 +123,12 @@ function Uinstall() {
   sudo apt-get update
   sudo apt-get -y install --install-recommends winehq-stable
 
+# Install Sk1
+  echo -en "\033[37;1;41m Install Sk1 \033[0m"
+  sudo apt -y install python-cups python-renderpm python-reportlab python-reportlab-accel python-wxgtk3.0 python-wxversion
+  curl --progress-bar -L -o/tmp/sk1.deb "https://sk1project.net/dc3.php?version=2.0rc3&target=python-sk1-2.0rc3_ubuntu_16.04_amd64.deb " && sudo dpkg -i /tmp/sk1.deb
+
+
 # Install Android-studio
   echo -en "\033[37;1;41m Install Andrion-studio \033[0m"
   sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
