@@ -114,6 +114,10 @@ function Uinstall() {
   sudo apt -y install python-cups python-renderpm python-reportlab python-reportlab-accel python-wxgtk3.0 python-wxversion
   curl --progress-bar -L -o/tmp/sk1.deb "https://sk1project.net/dc3.php?version=2.0rc3&target=python-sk1-2.0rc3_ubuntu_16.04_amd64.deb " && sudo dpkg -i /tmp/sk1.deb
 
+# Install yEd
+  echo -en "\033[37;1;41m Install yEd \033[0m"
+  curl --progress-bar -L -o/tmp/yed.sh "https://www.yworks.com/resources/yed/demo/yEd-3.18.2_with-JRE10_64-bit_setup.sh" && bash /tmp/yed.sh
+
 # Install indicators
 ## System sensors
   echo -en "\033[37;1;41m Install Sensors indicator \033[0m"
