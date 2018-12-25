@@ -21,7 +21,7 @@ function Uinstall() {
   echo -en "\033[37;1;41m firmware tools \033[0m"
   sudo apt-get -y install binwalk u-boot-tools
   echo -en "\033[37;1;41m user tools \033[0m"
-  sudo apt-get -y install gimp vlc qmmp brasero hplip-gui unrar default-jre icedtea-plugin filezilla
+  sudo apt-get -y install gimp vlc qmmp brasero hplip-gui unrar default-jre icedtea-plugin filezilla dia speedtest-cli
 
 # Install Ansible
   echo -en "\033[37;1;41m Install ansible \033[0m"

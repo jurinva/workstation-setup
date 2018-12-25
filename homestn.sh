@@ -18,7 +18,7 @@ function Uinstall() {
   lm-sensors gparted gsmartcontrol openssh-server gtkterm \                        # local tools
   binwalk u-boot-tools \                                                           # firmware tools
   gimp vlc qmmp brasero hplip-gui winetricks unrar default-jre icedtea-plugin \    # user tools
-  stellarium filezilla
+  stellarium filezilla dia speedtest-cli
 
 # Install Ansible
   echo "Install ansible"
