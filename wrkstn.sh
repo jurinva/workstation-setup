@@ -31,6 +31,12 @@ function Uinstall() {
   echo -en "\033[37;1;41m Install Gitkraken \033[0m"
   curl --progress-bar -L -o/tmp/gitkraken.deb "https://release.gitkraken.com/linux/gitkraken-amd64.deb" && sudo dpkg -i /tmp/gitkraken.deb
 
+# Install Notepadqq
+  echo -en "\033[37;1;41m Install Notepadqq \033[0m"
+  sudo add-apt-repository -y ppa:notepadqq-team/notepadqq
+  sudo apt-get update
+  sudo apt-get -y install notepadqq
+
 # EasyInstall
 #  echo -en "\033[37;1;41m Install Python modules \033[0m"
 #  sudo easy_install --upgrade pymssql
