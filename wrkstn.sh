@@ -37,6 +37,10 @@ function Uinstall() {
   sudo apt-get update
   sudo apt-get -y install notepadqq
 
+# Install VisulaStudio Code
+  echo -en "\033[37;1;41m Install VisulaStudio Code \033[0m"
+  curl --progress-bar -L -o/tmp/code_amd64.deb https://go.microsoft.com/fwlink/?LinkID=760868 && sudo dpkg -i /tmp/code_amd64.deb
+
 # EasyInstall
 #  echo -en "\033[37;1;41m Install Python modules \033[0m"
 #  sudo easy_install --upgrade pymssql
