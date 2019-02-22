@@ -156,7 +156,12 @@ function Uinstall() {
   sudo apt-get -y install yd-tools
 }
 
+function Usettings() {
+# Set switch-input-source (or sudo apt install gnome-tweaks and Keyboard & Mouse -> Additional Layout Options -> Switching to another layout -> Alt+Shift
+  gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Alt>Shift_L']"
+}
 
 if [ `cat /etc/issue.net | cut -d' ' -f1` == 'Ubuntu' ]; then
   Uinstall
+  Usettings
 fi
