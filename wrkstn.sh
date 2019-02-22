@@ -3,7 +3,7 @@
 ubuntuversion="16.04"
 
 function github-latest-release() {
-  curl --silent "https://api.github.com/repos/PowerShell/PowerShell/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | tr -d "v"
+  curl --silent "https://api.github.com/repos/$1/$1/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | tr -d "v"
 }
 
 function Uinstall() {
@@ -46,26 +46,26 @@ function Uinstall() {
 #  sudo easy_install --upgrade pymssql
 
 # Install Chrome
-#  echo -en "\033[37;1;41m Install Chrome \033[0m"
-#  curl --progress-bar -L -o/tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo dpkg -i /tmp/chrome.deb
+  echo -en "\033[37;1;41m Install Chrome \033[0m"
+  curl --progress-bar -L -o/tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo dpkg -i /tmp/chrome.deb
 
 # Install Yandex.Browser
   echo -en "\033[37;1;41m Install Yandex.Browser \033[0m"
   curl --progress-bar -L -ohttps://cache-mskm901.cdn.yandex.net/download.cdn.yandex.net/browser/yandex/ru/beta/Yandex.deb && sudo dpkg -i /tmp/Yandex.deb
 
 # Install VirtualBox
-#  echo -en "\033[37;1;41m install VirtualBox \033[0m"
-#  sudo apt-get -y install libsdl1.2debian
-#  curl --progress-bar -L -o/tmp/virtualbox.deb https://download.virtualbox.org/virtualbox/5.2.18/virtualbox-5.2_5.2.18-124319~Ubuntu~xenial_amd64.deb && sudo dpkg -i /tmp/virtualbox.deb
+  echo -en "\033[37;1;41m install VirtualBox \033[0m"
+  sudo apt-get -y install libsdl1.2debian
+  curl --progress-bar -L -o/tmp/virtualbox.deb https://download.virtualbox.org/virtualbox/5.2.18/virtualbox-5.2_5.2.18-124319~Ubuntu~xenial_amd64.deb && sudo dpkg -i /tmp/virtualbox.deb
 
 # Install Slack
-#  echo -en "\033[37;1;41m install Slack \033[0m"
-#  sudo apt-get -y install libappindicator1
-#  curl --progress-bar -L -o/tmp/slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.1-amd64.deb && sudo dpkg -i /tmp/slack.deb
+  echo -en "\033[37;1;41m install Slack \033[0m"
+  sudo apt-get -y install libappindicator1
+  curl --progress-bar -L -o/tmp/slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.1-amd64.deb && sudo dpkg -i /tmp/slack.deb
 
 # Install Skype
-#  echo -en "\033[37;1;41m Install Skype \033[0m"
-#  curl --progress-bar -L -o/tmp/skypeforlinux-64.deb "https://go.skype.com/skypeforlinux-64.deb" && sudo dpkg -i /tmp/skypeforlinux-64.deb
+  echo -en "\033[37;1;41m Install Skype \033[0m"
+  curl --progress-bar -L -o/tmp/skypeforlinux-64.deb "https://go.skype.com/skypeforlinux-64.deb" && sudo dpkg -i /tmp/skypeforlinux-64.deb
 
 # Install Telegram
   echo -en "\033[37;1;41m install Telegram \033[37;1;41m"
@@ -77,8 +77,15 @@ function Uinstall() {
   curl --progress-bar -L -o/tmp/atom.deb "https://atom.io/download/deb" && sudo dpkg -i /tmp/atom.deb
 
 # Install Asbru (new version of pac manager)
+  echo -en "\033[37;1;41m install Asbru (Pac) \033[37;1;41m"
+  sudo apt -y install gtk2-engines-pixbuf libcrypt-blowfish-perl libcrypt-cbc-perl libcrypt-rijndael-perl libexpect-perl libgnome2-gconf-perl libgtk2-ex-simple-list-perl libgtk2-gladexml-perl libgtk2-unique-perl \
+  libio-stty-perl libnet-arp-perl libnet-pcap-perl libnet-proxy-perl libossp-uuid-perl libossp-uuid16 libunique-1.0-0 libyaml-perl
   curl -s https://packagecloud.io/install/repositories/asbru-cm/asbru-cm/script.deb.sh | sudo bash
   sudo apt-get install asbru-cm
+
+# Install Dbeaver-ce
+  echo -en "\033[37;1;41m install Dbeaver \033[37;1;41m"
+  https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
 
 # Install PAC
 #  echo -en "\033[37;1;41m install Pac \033[37;1;41m"
@@ -86,18 +93,15 @@ function Uinstall() {
 #  libio-stty-perl libnet-arp-perl libnet-pcap-perl libnet-proxy-perl libossp-uuid-perl libossp-uuid16 libunique-1.0-0 libyaml-perl
 #  curl --progress-bar -L -o/tmp/pac.deb http://sourceforge.net/projects/pacmanager/files/pac-4.0/pac-4.5.5.7-all.deb && sudo dpkg -i /tmp/pac.deb
 
-# Install Evolution
-  sudo apt -y install evolution-ews
-
 # Install Docker CE
-#  echo -en "\033[37;1;41m Install Docker CE \033[0m"
-#  sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
-#  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-#  sudo apt-key fingerprint 0EBFCD88
-#  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-#  sudo apt-get update
-#  sudo apt-get -y install docker-ce
-#  sudo adduser $USER docker
+  echo -en "\033[37;1;41m Install Docker CE \033[0m"
+  sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  sudo apt-key fingerprint 0EBFCD88
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  sudo apt-get update
+  sudo apt-get -y install docker-ce
+  sudo adduser $USER docker
 
 # Install Project Atomic
 #  echo -en "\033[37;1;41m Install Project Atomic \033[0m"
@@ -119,9 +123,9 @@ function Uinstall() {
   sudo apt-get -y install compizconfig-settings-manager
 
 # Teamviewer
-#  echo -en "\033[37;1;41m Install Teamviewer \033[0m"
-#  sudo apt install qtdeclarative5-controls-plugin qml-module-qtquick-controls qml-module-qtquick-dialogs qtdeclarative5-dialogs-plugin
-#  curl --progress-bar -L -o/tmp/teamviewer_amd64.deb https://download.teamviewer.com/download/linux/teamviewer_amd64.deb && sudo dpkg -i /tmp/teamviewer_amd64.deb
+  echo -en "\033[37;1;41m Install Teamviewer \033[0m"
+  sudo apt install qtdeclarative5-controls-plugin qml-module-qtquick-controls qml-module-qtquick-dialogs qtdeclarative5-dialogs-plugin
+  curl --progress-bar -L -o/tmp/teamviewer_amd64.deb https://download.teamviewer.com/download/linux/teamviewer_amd64.deb && sudo dpkg -i /tmp/teamviewer_amd64.deb
 
 # Install Sk1
   echo -en "\033[37;1;41m Install Sk1 \033[0m"

@@ -3,7 +3,7 @@
 ubuntuversion="16.04"
 
 function github-latest-release() {
-  curl --silent "https://api.github.com/repos/PowerShell/PowerShell/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | tr -d "v"
+  curl --silent "https://api.github.com/repos/$1/$1/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | tr -d "v"
 }
 
 function Uinstall() {
