@@ -13,7 +13,7 @@ function Uinstall() {
   echo -en "\033[37;1;41m remote tools \033[0m\\t$a"
   sudo apt-get -y install sshpass remmina vinagre curl snmp
   echo -en "\033[37;1;41m development \033[0m\\t$a"
-  sudo apt-get -y install gitg sqlite3 dosbox python-setuptools python-dev freetds-dev python-redis
+  sudo apt-get -y install gitg sqlite3 dosbox python-setuptools python-dev freetds-dev python-redis cmake checkinstall
   echo -en "\033[37;1;41m sustem administration \033[0m\\t$a"
   sudo apt-get -y install mysql-workbench
   echo -en "\033[37;1;41m local tools \033[0m\\t$a"
@@ -56,7 +56,7 @@ function Uinstall() {
 # Install VirtualBox
   echo -en "\033[37;1;41m install VirtualBox \033[0m\\t$a"
   sudo apt-get -y install libsdl1.2debian
-  curl --progress-bar -L -o/tmp/virtualbox.deb https://download.virtualbox.org/virtualbox/5.2.18/virtualbox-5.2_5.2.18-124319~Ubuntu~xenial_amd64.deb && sudo dpkg -i /tmp/virtualbox.deb
+  curl --progress-bar -L -o/tmp/virtualbox.deb https://download.virtualbox.org/virtualbox/6.0.4/virtualbox-6.0_6.0.4-128413~Ubuntu~bionic_amd64.deb && sudo dpkg -i /tmp/virtualbox.deb
 
 # Install Slack
   echo -en "\033[37;1;41m install Slack \033[0m\\t$a"
@@ -136,11 +136,22 @@ function Uinstall() {
   echo -en "\033[37;1;41m Install yEd \033[0m\\t$a"
   curl --progress-bar -L -o/tmp/yed.sh "https://www.yworks.com/resources/yed/demo/yEd-3.18.2_with-JRE10_64-bit_setup.sh" && bash /tmp/yed.sh
 
+# Install Evolution
+  echo -en "\033[37;1;41m Install Evolution \033[0m\\t$a"
+  sudo apt-get install evolution-ews
+
+# Install Pidgin
+  echo -en "\033[37;1;41m Install Pidgin \033[0m\\t$a"
+  sudo apt -y install libgtk2.0-dev libxss-dev libgtkspell-dev libxml2-dev libgstreamer1.0-dev
+  curl -L -o/tmp/pidgin.tar.bz2 "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.13.0/pidgin-2.13.0.tar.bz2?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fpidgin%2Ffiles%2FPidgin%2F2.13.0%2Fpidgin-2.13.0.tar.bz2%2Fdownload&ts=1551484603"
+  cd /tmp && tar -xjf ./pidgin.tar.bz2 && cd /tmp/pidgin-2.13.0
+  ./configure --disable-vv --disable-idn --disable-meanwhile --disable-avahi --disable-dbus --disable-perl --disable-tcl --prefix=/usr
+  make
+  sudo checkinstall --nodoc --pkgname=pidgin --pkgversion=2.13.0 --pkgarch=amd64 --pkglicense=GPL --maintainer=jurinva@gmail.com -y -D
+
 # Install indicators
 ## System sensors
   echo -en "\033[37;1;41m Install Sensors indicator \033[0m\\t$a"
-  sudo add-apt-repository -y ppa:jfi/ppa
-  sudo apt-get update
   sudo apt-get -y install psensor
 ## Weather
   echo -en "\033[37;1;41m Install Weather indicator \033[0m\\t$a"
@@ -161,6 +172,8 @@ function Usettings() {
   gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Alt>Shift_L']"
 ## Set key like Insert
   echo 'xmodmap -e "keycode 64 = Insert"' >> ~/.bashrc
+## Install Russian Language
+  sudo apt install language-pack-ru language-pack-ru-base language-pack-gnome-ru language-pack-gnome-ru-base thunderbird-locale-ru hunspell-ru hyphen-ru libreoffice-l10n-ru firefox-locale-ru gnome-getting-started-docs-ru libreoffice-help-ru mythes-ru gnome-user-docs-ru aspell-ru gimp-help-ru gimp-help-en
 }
 
 if [ `cat /etc/issue.net | cut -d' ' -f1` == 'Ubuntu' ]; then
