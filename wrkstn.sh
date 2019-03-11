@@ -9,11 +9,11 @@ function github-latest-release() {
 function Uinstall() {
 # Install Tools
   echo -en "\033[37;1;41m install Tools \033[0m\\t$a"
-  sudo apt-get -y install whois wireshark-qt mc traceroute nmap fping iperf iperf3 zenmap p0f            # network tools
+  sudo apt-get -y install whois wireshark-qt mc traceroute nmap fping iperf iperf3 zenmap p0f net-tools           # network tools
   echo -en "\033[37;1;41m remote tools \033[0m\\t$a"
   sudo apt-get -y install sshpass remmina vinagre curl snmp
   echo -en "\033[37;1;41m development \033[0m\\t$a"
-  sudo apt-get -y install gitg sqlite3 dosbox python-setuptools python-dev freetds-dev python-redis cmake checkinstall
+  sudo apt-get -y install gitg sqlite3 gitk dosbox python-setuptools python-dev freetds-dev python-redis cmake checkinstall gitk
   echo -en "\033[37;1;41m sustem administration \033[0m\\t$a"
   sudo apt-get -y install mysql-workbench
   echo -en "\033[37;1;41m local tools \033[0m\\t$a"
@@ -78,6 +78,8 @@ function Uinstall() {
 
 # Install Asbru (new version of pac manager)
   echo -en "\033[37;1;41m install Asbru (Pac) \033[0m\\t$a"
+  if [ "XDG_CURRENT_DESKTOP" == "Unity" ]; then sudo apt -y install libgtk2-appindicator-perl; fi
+#  if [ "XDG_CURRENT_DESKTOP" == "ubuntu:GNOME" ]; then sudo apt -y install libgtk2-appindicator-perl; fi
   sudo apt -y install gtk2-engines-pixbuf libcrypt-blowfish-perl libcrypt-cbc-perl libcrypt-rijndael-perl libexpect-perl libgnome2-gconf-perl libgtk2-ex-simple-list-perl libgtk2-gladexml-perl libgtk2-unique-perl \
   libio-stty-perl libnet-arp-perl libnet-pcap-perl libnet-proxy-perl libossp-uuid-perl libossp-uuid16 libunique-1.0-0 libyaml-perl
   curl -s https://packagecloud.io/install/repositories/asbru-cm/asbru-cm/script.deb.sh | sudo bash
@@ -148,6 +150,14 @@ function Uinstall() {
   ./configure --disable-vv --disable-idn --disable-meanwhile --disable-avahi --disable-dbus --disable-perl --disable-tcl --prefix=/usr
   make
   sudo checkinstall --nodoc --pkgname=pidgin --pkgversion=2.13.0 --pkgarch=amd64 --pkglicense=GPL --maintainer=jurinva@gmail.com -y -D
+  mkdir /tmp/window_merge
+  cd /tmp/window_merge
+  git clone https://github.com/jurinva/window_merge
+  cd window_merge
+  mkdir m4
+  autoreconf -fi
+  ./configure --prefix=$HOME/.purple/plugins
+  make
 
 # Install indicators
 ## System sensors
