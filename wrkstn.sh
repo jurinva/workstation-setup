@@ -6,6 +6,10 @@ function github-latest-release() {
   curl --silent "https://api.github.com/repos/$1/$1/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | tr -d "v"
 }
 
+function apt-get-update() {
+  if [ `lsb_release -r -s | tr "." ""` -lt 1804 ]; then sudo apt-get update; fi
+}
+
 function Uinstall() {
 # Install Tools
   echo -en "\033[37;1;41m install Tools \033[0m\\t$a"
@@ -34,7 +38,7 @@ function Uinstall() {
 # Install Notepadqq
   echo -en "\033[37;1;41m Install Notepadqq \033[0m\\t$a"
   sudo add-apt-repository -y ppa:notepadqq-team/notepadqq
-  sudo apt-get update
+
   sudo apt-get -y install notepadqq
 
 # Install VisulaStudio Code
@@ -101,14 +105,14 @@ function Uinstall() {
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   sudo apt-key fingerprint 0EBFCD88
   sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  sudo apt-get update
+
   sudo apt-get -y install docker-ce
   sudo adduser $USER docker
 
 # Install Project Atomic
 #  echo -en "\033[37;1;41m Install Project Atomic \033[0m\\t$a"
 #  sudo add-apt-repository ppa:projectatomic/ppa
-#  sudo apt-get update
+#
 #  sudo apt-get -y podman
 
 # Install Wine
@@ -117,7 +121,7 @@ function Uinstall() {
 #  wget -nc https://dl.winehq.org/wine-builds/Release.key
 #  sudo apt-key add Release.key
 #  sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
-#  sudo apt-get update
+#
 #  sudo apt-get -y install --install-recommends winehq-stable
 
 # Tweaks
@@ -166,14 +170,14 @@ function Uinstall() {
 ## Weather
   echo -en "\033[37;1;41m Install Weather indicator \033[0m\\t$a"
   sudo add-apt-repository -y ppa:atareao/atareao
-  sudo apt-get update
+
   sudo apt-get -y install my-weather-indicator
 ## Yandex disk
   echo -en "\033[37;1;41m Install Yandex Disk \033[0m\\t$a"
   curl --progress-bar -L -o/tmp/yandex-disk_latest_amd64.deb http://repo.yandex.ru/yandex-disk/yandex-disk_latest_amd64.deb && sudo dpkg -i yandex-disk_latest_amd64.deb
   yandex-disk setup
   sudo add-apt-repository -y ppa:slytomcat/ppa
-  sudo apt-get update
+
   sudo apt-get -y install yd-tools
 }
 
