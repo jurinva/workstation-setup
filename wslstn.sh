@@ -3,6 +3,16 @@
 
   sudo dbus-uuidgen > /var/lib/dbus/machine-id
 
+# Install Tools
+  echo "install Tools \033[0m"
+  sudo apt-get -y install \
+  whois mc traceroute nmap fping iperf iperf3 zenmap \
+  sshpass curl snmp xca \
+  gitg gitk sqlite3 dosbox \
+  python-setuptools python-dev freetds-dev python-redis \
+  openxenmanager mysql-workbench \
+  filezilla speedtest-cli
+
 # Install Ansible
   echo -en "\033[37;1;41m Install ansible \033[0m\\t$a"
   sudo add-apt-repository -y ppa:ansible/ansible && sudo apt update && sudo apt -y install ansible
