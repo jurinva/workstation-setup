@@ -179,6 +179,10 @@ function Uinstall() {
   sudo add-apt-repository -y ppa:slytomcat/ppa
 
   sudo apt-get -y install yd-tools
+
+# Install Firefox Add-ons
+  firefox 
+
 }
 
 function Usettings() {
