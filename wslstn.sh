@@ -26,4 +26,6 @@
   curl -s https://packagecloud.io/install/repositories/asbru-cm/asbru-cm/script.deb.sh | sudo bash
   sudo apt-get install asbru-cm
 
+# Install KeepassXC
+  sudo add-apt-repository -y ppa:phoerious/keepassxc && sudo apt -y install keepassxc
 
