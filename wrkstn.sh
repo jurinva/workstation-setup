@@ -131,6 +131,9 @@ function Uinstall() {
 # Install KeepassXC
   sudo add-apt-repository -y ppa:phoerious/keepassxc && sudo apt -y install keepassxc
 
+# Install Firefox Add-ons
+  firefox https://addons.mozilla.org/firefox/downloads/file/1754702/keepassxc_browser-1.4.3-fx.xpi?src=dp-btn-primary
+
 # Teamviewer
   echo -en "\033[37;1;41m Install Teamviewer \033[0m\\t$a"
   sudo apt install qtdeclarative5-controls-plugin qml-module-qtquick-controls qml-module-qtquick-dialogs qtdeclarative5-dialogs-plugin
