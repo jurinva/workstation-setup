@@ -128,6 +128,10 @@ function Uinstall() {
 #  echo -en "\033[37;1;41m install Tweaks \033[0m\\t$a"
 #  sudo apt-get -y install compizconfig-settings-manager
 
+# Install KeepassXC
+  sudo add-apt-repository -y ppa:phoerious/keepassxc
+  sudo apt -y install keepassxc
+
 # Teamviewer
   echo -en "\033[37;1;41m Install Teamviewer \033[0m\\t$a"
   sudo apt install qtdeclarative5-controls-plugin qml-module-qtquick-controls qml-module-qtquick-dialogs qtdeclarative5-dialogs-plugin
