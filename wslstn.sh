@@ -29,3 +29,5 @@
 # Install KeepassXC
   sudo add-apt-repository -y ppa:phoerious/keepassxc && sudo apt -y install keepassxc
 
+# Install Firefox Add-ons
+  firefox https://addons.mozilla.org/firefox/downloads/file/1754702/keepassxc_browser-1.4.3-fx.xpi?src=dp-btn-primary
