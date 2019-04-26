@@ -181,8 +181,7 @@ function Uinstall() {
   sudo apt-get -y install yd-tools
 
 # Install Firefox Add-ons
-  firefox 
-
+  firefox https://addons.mozilla.org/firefox/downloads/file/1754702/keepassxc_browser-1.4.3-fx.xpi?src=dp-btn-primary
 }
 
 function Usettings() {
