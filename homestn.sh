@@ -139,6 +139,9 @@ function Uinstall() {
 # Install KeepassXC
   sudo add-apt-repository -y ppa:phoerious/keepassxc && sudo apt -y install keepassxc
 
+# Install Firefox Add-ons
+  firefox https://addons.mozilla.org/firefox/downloads/file/1754702/keepassxc_browser-1.4.3-fx.xpi?src=dp-btn-primary
+
 # Install Android-studio
   echo -en "\033[37;1;41m Install Andrion-studio \033[0m"
   sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
