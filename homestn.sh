@@ -136,6 +136,9 @@ function Uinstall() {
   echo -en "\033[37;1;41m Install yEd \033[0m"
   curl --progress-bar -L -o/tmp/yed.sh "https://www.yworks.com/resources/yed/demo/yEd-3.18.2_with-JRE10_64-bit_setup.sh" && bash /tmp/yed.sh
 
+# Install KeepassXC
+  sudo add-apt-repository -y ppa:phoerious/keepassxc && sudo apt -y install keepassxc
+
 # Install Android-studio
   echo -en "\033[37;1;41m Install Andrion-studio \033[0m"
   sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
