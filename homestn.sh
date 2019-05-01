@@ -12,9 +12,9 @@ function Uinstall() {
   sudo apt-get -y install \
   whois wireshark-qt mc traceroute nmap fping iperf iperf3 zenmap p0f \            # network tools
   sshpass remmina vinagre curl snmp \                                      # remote tools
-  gitg gitk subversion sqlite3 dosbox arduino \                                                    # development
+  gitg gitk subversion rabbitvcs-nautilus nautilus-script-collection-svn sqlite3 dosbox arduino \                                                    # development
   python-setuptools python-dev freetds-dev python-redis \
-  openxenmanager mysql-workbench gvncviewer \                                      # system administration
+  mysql-workbench gvncviewer \                                      # system administration
   lm-sensors gparted gsmartcontrol openssh-server gtkterm \                        # local tools
   binwalk u-boot-tools \                                                           # firmware tools
   gimp vlc qmmp brasero hplip-gui winetricks unrar default-jre icedtea-plugin \    # user tools
