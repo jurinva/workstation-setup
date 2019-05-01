@@ -17,7 +17,7 @@ function Uinstall() {
   echo -en "\033[37;1;41m remote tools \033[0m\\t$a"
   sudo apt-get -y install sshpass remmina vinagre curl snmp
   echo -en "\033[37;1;41m development \033[0m\\t$a"
-  sudo apt-get -y install gitg sqlite3 gitk dosbox python-setuptools python-dev freetds-dev python-redis cmake checkinstall gitk svn
+  sudo apt-get -y install gitg sqlite3 gitk dosbox python-setuptools python-dev freetds-dev python-redis cmake checkinstall gitk subversion
   echo -en "\033[37;1;41m sustem administration \033[0m\\t$a"
   sudo apt-get -y install mysql-workbench
   echo -en "\033[37;1;41m local tools \033[0m\\t$a"
