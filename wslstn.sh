@@ -8,7 +8,7 @@
   sudo apt-get -y install \
   whois mc traceroute nmap fping iperf iperf3 zenmap \
   sshpass curl snmp xca \
-  gitg gitk sqlite3 dosbox \
+  gitg gitk svn sqlite3 dosbox \
   python-setuptools python-dev freetds-dev python-redis \
   openxenmanager mysql-workbench \
   filezilla speedtest-cli
