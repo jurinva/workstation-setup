@@ -6,7 +6,7 @@
   echo 'export DISPLAY=:0' > ~/.bashrc
 
 # Install Tools
-  echo -en "\e[31minstall Tools \\n"
+  echo -e "\e[31minstall Tools \\n \e[0m"
   sudo apt-get -y install \
   whois mc traceroute nmap fping iperf iperf3 zenmap \
   sshpass curl snmp xca \
@@ -16,11 +16,11 @@
   filezilla speedtest-cli
 
 # Install Ansible
-  echo -en "\e[31m Install ansible \\n"
+  echo -e "\e[31m Install ansible \\n \e[0m"
   sudo add-apt-repository -y ppa:ansible/ansible && sudo apt update && sudo apt -y install ansible
 
 # Install Asbru (new version of pac manager)
-  echo -en "\e[31m install Asbru (Pac) \\n"
+  echo -e "\e[31m install Asbru (Pac) \\n \e[0m"
   if [ "XDG_CURRENT_DESKTOP" == "Unity" ]; then sudo apt -y install libgtk2-appindicator-perl; fi
 #  if [ "XDG_CURRENT_DESKTOP" == "ubuntu:GNOME" ]; then sudo apt -y install libgtk2-appindicator-perl; fi
   sudo apt -y install gtk2-engines-pixbuf libcrypt-blowfish-perl libcrypt-cbc-perl libcrypt-rijndael-perl libexpect-perl libgnome2-gconf-perl libgtk2-ex-simple-list-perl libgtk2-gladexml-perl libgtk2-unique-perl \
@@ -28,7 +28,7 @@
   curl -s https://packagecloud.io/install/repositories/asbru-cm/asbru-cm/script.deb.sh | sudo bash
   sudo apt-get install asbru-cm
 
-  echo -en "\e[31m Install Keepass\\n"
+  echo -e "\e[31m Install Keepass\\n \e[0m"
 # Install KeepassXC
   sudo add-apt-repository -y ppa:phoerious/keepassxc && sudo apt -y install keepassxc
 
