@@ -3,6 +3,8 @@
 
   sudo dbus-uuidgen > /var/lib/dbus/machine-id
 
+  echo 'export DISPLAY=:0' > ~/.bashrc
+
 # Install Tools
   echo "install Tools \033[0m"
   sudo apt-get -y install \
