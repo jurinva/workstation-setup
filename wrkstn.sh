@@ -197,6 +197,8 @@ function Usettings() {
   echo 'xmodmap -e "keycode 64 = Insert"' >> ~/.bashrc
 ## Install Russian Language
   sudo apt install language-pack-ru language-pack-ru-base language-pack-gnome-ru language-pack-gnome-ru-base thunderbird-locale-ru hunspell-ru hyphen-ru libreoffice-l10n-ru firefox-locale-ru gnome-getting-started-docs-ru libreoffice-help-ru mythes-ru gnome-user-docs-ru aspell-ru gimp-help-ru gimp-help-en
+## Ansible settings
+  echo 'export ANSIBLE_HOST_KEY_CHECKING=False' >> ~/.bashrc
 }
 
 if [ `cat /etc/issue.net | cut -d' ' -f1` == 'Ubuntu' ]; then
