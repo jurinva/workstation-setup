@@ -3,7 +3,8 @@
 
   sudo dbus-uuidgen > /var/lib/dbus/machine-id
 
-  echo 'export DISPLAY=:0' > ~/.bashrc
+  echo 'export DISPLAY=:0' >> ~/.bashrc
+  echo 'export ANSIBLE_HOST_KEY_CHECKING=False' >> ~/.bashrc
 
 # Install Tools
   echo -e "\e[31minstall Tools \\n \e[0m"
