@@ -184,6 +184,8 @@ function Uinstall() {
   sudo add-apt-repository ppa:slytomcat/ppa
   sudo apt-get update
   sudo apt-get -y install yd-tools
+## Ansible settings
+  echo 'export ANSIBLE_HOST_KEY_CHECKING=False' >> ~/.bashrc
 }
 
 
