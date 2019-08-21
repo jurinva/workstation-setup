@@ -44,6 +44,16 @@ function Uinstall() {
 # Install VisulaStudio Code
   echo -e "\e[31m Install VisulaStudio Code \\n \e[0m"
   curl --progress-bar -L -o/tmp/code_amd64.deb https://go.microsoft.com/fwlink/?LinkID=760868 && sudo dpkg -i /tmp/code_amd64.deb
+  code --install-extension vscode-icons-team.vscode-icons
+  code --install-extension eamodio.gitlens
+  code --install-extension akamud.vscode-theme-onedark
+  code --install-extension emroussel.atom-icons
+  code --install-extension ms-vscode.atom-keybindings
+  code --install-extension mhutchie.git-graph
+  code --install-extension ms-python.python
+  code --install-extension vscoss.vscode-ansible
+  code --install-extension vscjava.vscode-maven
+  code --install-extension marlon407.code-groovy
 
 # EasyInstall
 #  echo -e "\e[31m Install Python modules \\n \e[0m"
