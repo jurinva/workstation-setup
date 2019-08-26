@@ -89,7 +89,7 @@ function Uinstall() {
 # Install Atom
   echo -e "\e[31m install Atom \\n \e[0m"
   curl --progress-bar -L -o/tmp/atom.deb "https://atom.io/download/deb" && sudo dpkg -i /tmp/atom.deb
-  apm install open-terminal-here git-control git-log git-plus tool-bar git-plus-toolbar autocomplete-python kite
+  apm install open-terminal-here git-control git-log git-plus tool-bar git-plus-toolbar autocomplete-python kite svn blame
 
 # Install Asbru (new version of pac manager)
   echo -e "\e[31m install Asbru (Pac) \\n \e[0m"
