@@ -13,7 +13,7 @@
   sshpass curl snmp xca \
   gitg gitk subversion sqlite3 dosbox \
   python-setuptools python-dev freetds-dev python-redis \
-  openxenmanager mysql-workbench \
+  mysql-workbench \
   filezilla speedtest-cli
 
 # Install Ansible
@@ -27,7 +27,7 @@
   sudo apt -y install gtk2-engines-pixbuf libcrypt-blowfish-perl libcrypt-cbc-perl libcrypt-rijndael-perl libexpect-perl libgnome2-gconf-perl libgtk2-ex-simple-list-perl libgtk2-gladexml-perl libgtk2-unique-perl \
   libio-stty-perl libnet-arp-perl libnet-pcap-perl libnet-proxy-perl libossp-uuid-perl libossp-uuid16 libunique-1.0-0 libyaml-perl dbus-x11
   curl -s https://packagecloud.io/install/repositories/asbru-cm/asbru-cm/script.deb.sh | sudo bash
-  sudo apt-get install asbru-cm
+  sudo apt-get -y install asbru-cm
 
   echo -e "\e[31m Install Keepass\\n \e[0m"
 # Install KeepassXC
