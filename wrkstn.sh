@@ -2,6 +2,13 @@
 
 ubuntuversion="18.04"
 
+tools='whois wireshark-qt mc traceroute nmap fping iperf iperf3 zenmap p0f net-tools sshpass remmina vinagre curl snmp
+       install gitg sqlite3 gitk dosbox python-setuptools python-dev freetds-dev python-redis cmake checkinstall gitk subversion rabbitvcs-nautilus nautilus-script-collection-svn
+       mysql-workbench
+       lm-sensors gparted gsmartcontrol openssh-server gtkterm
+       binwalk u-boot-tools
+       gimp vlc qmmp brasero hplip-gui unrar default-jre icedtea-plugin filezilla dia speedtest-cli'
+
 function github-latest-release() {
   curl --silent "https://api.github.com/repos/$1/$1/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | tr -d "v"
 }
@@ -13,19 +20,7 @@ function apt-get-update() {
 function Uinstall() {
 # Install Tools
   echo -e "\e[31m install Tools \\n \e[0m"
-  sudo apt-get -y install whois wireshark-qt mc traceroute nmap fping iperf iperf3 zenmap p0f net-tools           # network tools
-  echo -e "\e[31m remote tools \\n \e[0m"
-  sudo apt-get -y install sshpass remmina vinagre curl snmp
-  echo -e "\e[31m development \\n \e[0m"
-  sudo apt-get -y install gitg sqlite3 gitk dosbox python-setuptools python-dev freetds-dev python-redis cmake checkinstall gitk subversion rabbitvcs-nautilus nautilus-script-collection-svn
-  echo -e "\e[31m sustem administration \\n \e[0m"
-  sudo apt-get -y install mysql-workbench
-  echo -e "\e[31m local tools \\n \e[0m"
-  sudo apt-get -y install lm-sensors gparted gsmartcontrol openssh-server gtkterm
-  echo -e "\e[31m firmware tools \\n \e[0m"
-  sudo apt-get -y install binwalk u-boot-tools
-  echo -e "\e[31m user tools \\n \e[0m"
-  sudo apt-get -y install gimp vlc qmmp brasero hplip-gui unrar default-jre icedtea-plugin filezilla dia speedtest-cli
+  sudo apt-get -y install whois $tools
 
 # Install Ansible
   echo -e "\e[31m Install ansible \\n \e[0m"
@@ -33,17 +28,16 @@ function Uinstall() {
 
 # Install Gitkraken
   echo -e "\e[31m Install Gitkraken \\n \e[0m"
-  curl --progress-bar -L -o/tmp/gitkraken.deb "https://release.gitkraken.com/linux/gitkraken-amd64.deb" && sudo dpkg -i /tmp/gitkraken.deb
+  curl -L -o/tmp/gitkraken.deb "https://release.gitkraken.com/linux/gitkraken-amd64.deb" && sudo dpkg -i /tmp/gitkraken.deb
 
 # Install Notepadqq
   echo -e "\e[31m Install Notepadqq \\n \e[0m"
   sudo add-apt-repository -y ppa:notepadqq-team/notepadqq
-
   sudo apt-get -y install notepadqq
 
 # Install VisulaStudio Code
   echo -e "\e[31m Install VisulaStudio Code \\n \e[0m"
-  curl --progress-bar -L -o/tmp/code_amd64.deb https://go.microsoft.com/fwlink/?LinkID=760868 && sudo dpkg -i /tmp/code_amd64.deb
+  curl -L -o/tmp/code_amd64.deb https://go.microsoft.com/fwlink/?LinkID=760868 && sudo dpkg -i /tmp/code_amd64.deb
   code --install-extension vscode-icons-team.vscode-icons
   code --install-extension eamodio.gitlens
   code --install-extension akamud.vscode-theme-onedark
@@ -61,34 +55,34 @@ function Uinstall() {
 
 # Install Chrome
   echo -e "\e[31m Install Chrome \\n \e[0m"
-  curl --progress-bar -L -o/tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo dpkg -i /tmp/chrome.deb
+  curl -L -o/tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo dpkg -i /tmp/chrome.deb
 
 # Install Yandex.Browser
   echo -e "\e[31m Install Yandex.Browser \\n \e[0m"
-  curl --progress-bar -L -ohttps://cache-mskm901.cdn.yandex.net/download.cdn.yandex.net/browser/yandex/ru/beta/Yandex.deb && sudo dpkg -i /tmp/Yandex.deb
+  curl -L -ohttps://cache-mskm901.cdn.yandex.net/download.cdn.yandex.net/browser/yandex/ru/beta/Yandex.deb && sudo dpkg -i /tmp/Yandex.deb
 
 # Install VirtualBox
   echo -e "\e[31m install VirtualBox \\n \e[0m"
   sudo apt-get -y install libsdl1.2debian
-  curl --progress-bar -L -o/tmp/virtualbox.deb https://download.virtualbox.org/virtualbox/6.0.4/virtualbox-6.0_6.0.4-128413~Ubuntu~bionic_amd64.deb && sudo dpkg -i /tmp/virtualbox.deb
+  curl -L -o/tmp/virtualbox.deb https://download.virtualbox.org/virtualbox/6.0.4/virtualbox-6.0_6.0.4-128413~Ubuntu~bionic_amd64.deb && sudo dpkg -i /tmp/virtualbox.deb
 
 # Install Slack
   echo -e "\e[31m install Slack \\n \e[0m"
   sudo apt-get -y install libappindicator1
-  curl --progress-bar -L -o/tmp/slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.1-amd64.deb && sudo dpkg -i /tmp/slack.deb
+  curl -L -o/tmp/slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.1-amd64.deb && sudo dpkg -i /tmp/slack.deb
 
 # Install Skype
   echo -e "\e[31m Install Skype \\n \e[0m"
-  curl --progress-bar -L -o/tmp/skypeforlinux-64.deb "https://go.skype.com/skypeforlinux-64.deb" && sudo dpkg -i /tmp/skypeforlinux-64.deb
+  curl -L -o/tmp/skypeforlinux-64.deb "https://go.skype.com/skypeforlinux-64.deb" && sudo dpkg -i /tmp/skypeforlinux-64.deb
 
 # Install Telegram
   echo -e "\e[31m install Telegram \\n \e[0m"
-  curl --progress-bar -L -o ~/Downloads/telegram.tar.xz https://telegram.org/dl/desktop/linux
+  curl -L -o ~/Downloads/telegram.tar.xz https://telegram.org/dl/desktop/linux
   tar -xpJf ./tsetup.tar.xz
 
 # Install Atom
   echo -e "\e[31m install Atom \\n \e[0m"
-  curl --progress-bar -L -o/tmp/atom.deb "https://atom.io/download/deb" && sudo dpkg -i /tmp/atom.deb
+  curl -L -o/tmp/atom.deb "https://atom.io/download/deb" && sudo dpkg -i /tmp/atom.deb
   apm install open-terminal-here git-control git-log git-plus tool-bar git-plus-toolbar autocomplete-python kite svn blame
 
 # Install Asbru (new version of pac manager)
@@ -102,13 +96,13 @@ function Uinstall() {
 
 # Install Dbeaver-ce
   echo -e "\e[31m install Dbeaver \\n \e[0m"
-  curl --progress-bar -L -o/tmp/dbeaver.deb https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb && sudo dpkg -i /tmp/dbeaver.deb
+  curl -L -o/tmp/dbeaver.deb https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb && sudo dpkg -i /tmp/dbeaver.deb
 
 # Install PAC
 #  echo -e "\e[31m install Pac \\n \e[0m"
 #  sudo apt -y install gtk2-engines-pixbuf libcrypt-blowfish-perl libcrypt-cbc-perl libcrypt-rijndael-perl libexpect-perl libgnome2-gconf-perl libgtk2-ex-simple-list-perl libgtk2-gladexml-perl libgtk2-unique-perl \
 #  libio-stty-perl libnet-arp-perl libnet-pcap-perl libnet-proxy-perl libossp-uuid-perl libossp-uuid16 libunique-1.0-0 libyaml-perl
-#  curl --progress-bar -L -o/tmp/pac.deb http://sourceforge.net/projects/pacmanager/files/pac-4.0/pac-4.5.5.7-all.deb && sudo dpkg -i /tmp/pac.deb
+#  curl -L -o/tmp/pac.deb http://sourceforge.net/projects/pacmanager/files/pac-4.0/pac-4.5.5.7-all.deb && sudo dpkg -i /tmp/pac.deb
 
 # Install Docker CE
   echo -e "\e[31m Install Docker CE \\n \e[0m"
@@ -148,16 +142,16 @@ function Uinstall() {
 # Teamviewer
   echo -e "\e[31m Install Teamviewer \\n \e[0m"
   sudo apt install qtdeclarative5-controls-plugin qml-module-qtquick-controls qml-module-qtquick-dialogs qtdeclarative5-dialogs-plugin
-  curl --progress-bar -L -o/tmp/teamviewer_amd64.deb https://download.teamviewer.com/download/linux/teamviewer_amd64.deb && sudo dpkg -i /tmp/teamviewer_amd64.deb
+  curl -L -o/tmp/teamviewer_amd64.deb https://download.teamviewer.com/download/linux/teamviewer_amd64.deb && sudo dpkg -i /tmp/teamviewer_amd64.deb
 
 # Install Sk1
   echo -e "\e[31m Install Sk1 \\n \e[0m"
   sudo apt -y install python-cups python-renderpm python-reportlab python-reportlab-accel python-wxgtk3.0 python-wxversion
-  curl --progress-bar -L -o/tmp/sk1.deb "https://sk1project.net/dc3.php?version=2.0rc3&target=python-sk1-2.0rc3_ubuntu_16.04_amd64.deb " && sudo dpkg -i /tmp/sk1.deb
+  curl -L -o/tmp/sk1.deb "https://sk1project.net/dc3.php?version=2.0rc3&target=python-sk1-2.0rc3_ubuntu_16.04_amd64.deb " && sudo dpkg -i /tmp/sk1.deb
 
 # Install yEd
   echo -e "\e[31m Install yEd \\n \e[0m"
-  curl --progress-bar -L -o/tmp/yed.sh "https://www.yworks.com/resources/yed/demo/yEd-3.18.2_with-JRE10_64-bit_setup.sh" && bash /tmp/yed.sh
+  curl -L -o/tmp/yed.sh "https://www.yworks.com/resources/yed/demo/yEd-3.18.2_with-JRE10_64-bit_setup.sh" && bash /tmp/yed.sh
 
 # Install Evolution
   echo -e "\e[31m Install Evolution \\n \e[0m"
@@ -191,7 +185,7 @@ function Uinstall() {
   sudo apt-get -y install my-weather-indicator
 ## Yandex disk
   echo -e "\e[31m Install Yandex Disk \\n \e[0m"
-  curl --progress-bar -L -o/tmp/yandex-disk_latest_amd64.deb http://repo.yandex.ru/yandex-disk/yandex-disk_latest_amd64.deb && sudo dpkg -i yandex-disk_latest_amd64.deb
+  curl -L -o/tmp/yandex-disk_latest_amd64.deb http://repo.yandex.ru/yandex-disk/yandex-disk_latest_amd64.deb && sudo dpkg -i yandex-disk_latest_amd64.deb
   yandex-disk setup
   sudo add-apt-repository -y ppa:slytomcat/ppa
 
@@ -205,7 +199,7 @@ function Usettings() {
 ## Set switch-input-source (or sudo apt install gnome-tweaks and Keyboard & Mouse -> Additional Layout Options -> Switching to another layout -> Alt+Shift
   gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Alt>Shift_L']"
 ## Set key like Insert
-  echo 'xmodmap -e "keycode 64 = Insert"' >> ~/.bashrc
+  # echo 'xmodmap -e "keycode 64 = Insert"' >> ~/.bashrc
 ## Install Russian Language
   sudo apt install language-pack-ru language-pack-ru-base language-pack-gnome-ru language-pack-gnome-ru-base thunderbird-locale-ru hunspell-ru hyphen-ru libreoffice-l10n-ru firefox-locale-ru gnome-getting-started-docs-ru libreoffice-help-ru mythes-ru gnome-user-docs-ru aspell-ru gimp-help-ru gimp-help-en
 ## Ansible settings
