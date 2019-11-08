@@ -29,6 +29,7 @@ function Uinstall() {
 # Install Gitkraken
   echo -e "\e[31m Install Gitkraken \\n \e[0m"
   curl -L -o/tmp/gitkraken.deb "https://release.gitkraken.com/linux/gitkraken-amd64.deb" && sudo dpkg -i /tmp/gitkraken.deb
+  echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 # Install Notepadqq
   echo -e "\e[31m Install Notepadqq \\n \e[0m"
