@@ -120,6 +120,14 @@ function Uinstall() {
   sudo apt-get -y install docker-ce
   sudo adduser $USER docker
 
+# Install kubectl
+# Origin: https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux
+  sudo apt-get update && sudo apt-get install -y apt-transport-https
+  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+  echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+  sudo apt-get update
+  sudo apt-get install -y kubectl
+
 # Install Project Atomic
   echo -e "\e[31m Install Project Atomic \\n \e[0m"
   sudo add-apt-repository ppa:projectatomic/ppa
