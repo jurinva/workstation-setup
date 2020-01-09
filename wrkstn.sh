@@ -84,7 +84,7 @@ function Uinstall() {
 # Install Atom
   echo -e "\e[31m install Atom \\n \e[0m"
   curl -L -o/tmp/atom.deb "https://atom.io/download/deb" && sudo dpkg -i /tmp/atom.deb
-  apm install open-terminal-here git-control git-log git-plus tool-bar git-plus-toolbar autocomplete-python kite svn blame ansible-vault
+  apm install open-terminal-here git-control git-log git-plus tool-bar git-plus-toolbar autocomplete-python kite svn blame ansible-vault markdown-preview-enhanced atom-inline-blame
 # Manuals:
 # https://github.com/sydro/atom-ansible-vault
 

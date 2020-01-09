@@ -91,6 +91,7 @@ function Uinstall() {
 # Install Atom
   echo -e "\e[31m install Atom \e[31m"
   curl --progress-bar -L -o/tmp/atom.deb "https://atom.io/download/deb" && sudo dpkg -i /tmp/atom.deb
+  apm install open-terminal-here git-control git-log git-plus tool-bar git-plus-toolbar autocomplete-python kite svn blame ansible-vault markdown-preview-enhanced atom-inline-blame
 
 # Install Asbru (new version of pac manager)
   curl -s https://packagecloud.io/install/repositories/asbru-cm/asbru-cm/script.deb.sh | sudo bash
