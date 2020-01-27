@@ -1,4 +1,11 @@
-if ([System.Environment]::OSVersion.Version.Build -eq 18362) { Write-Host "18362" } else { Write-Host "18363-" }
+if ([System.Environment]::OSVersion.Version.Build -lt 18362) {
+  Invoke-WebRequest -Uri Invoke-WebRequest -Uri https://go.microsoft.com/fwlink/?LinkID=799445 -OutFile $env:USERPROFILE\Downloads\Windows10Upgrade9252.exe
+  cd $env:USERPROFILE\Downloads
+  .\Windows10Upgrade9252.exe
+#  restart-computer
+} else {
+  Write-Host "Your system is aready 18362"
+}
 
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
@@ -19,6 +26,11 @@ choco install -y virtualbox
 choco install -y wget
 choco install -y wireshark
 choco install -y xming
+
+# Install wsl
+Enable-WindowsOptionalFeature -NoRestart -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+#restart-computer
+#Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile Ubuntu.appx -UseBasicParsing
 
 # Install MobaXterm
 choco install -y mobaxterm
