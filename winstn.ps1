@@ -1,10 +1,10 @@
-if ([System.Environment]::OSVersion.Version.Build -lt 18362) {
+if ([System.Environment]::OSVersion.Version.Build -lt 18363) {
   Invoke-WebRequest -Uri Invoke-WebRequest -Uri https://go.microsoft.com/fwlink/?LinkID=799445 -OutFile $env:USERPROFILE\Downloads\Windows10Upgrade9252.exe
   cd $env:USERPROFILE\Downloads
   .\Windows10Upgrade9252.exe
 #  restart-computer
 } else {
-  Write-Host "Your system is aready 18362"
+  Write-Host "Your system is aready 18363"
 }
 
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
@@ -47,4 +47,4 @@ if (Test-Path 'C:\Program Files\Oracle\VirtualBox\VirtualBox.exe') {
 
 # Install Atom
 choco install atom -y
-& $env:LOCALAPPDATA'\atom\bin\apm' install open-terminal-here git-control git-log git-plus tool-bar git-plus-toolbar autocomplete-python kite svn blame ansible-vault markdown-preview-enhanced atom-inline-blame
+iex "$env:LOCALAPPDATA'\atom\bin\apm' install open-terminal-here git-control git-log git-plus tool-bar git-plus-toolbar autocomplete-python kite svn blame ansible-vault markdown-preview-enhanced atom-inline-blame"
