@@ -1,3 +1,4 @@
+# Install last stable release
 if ([System.Environment]::OSVersion.Version.Build -lt 18363) {
   Invoke-WebRequest -Uri Invoke-WebRequest -Uri https://go.microsoft.com/fwlink/?LinkID=799445 -OutFile $env:USERPROFILE\Downloads\Windows10Upgrade9252.exe
   cd $env:USERPROFILE\Downloads
@@ -7,14 +8,18 @@ if ([System.Environment]::OSVersion.Version.Build -lt 18363) {
   Write-Host "Your system is aready 18363"
 }
 
+# Install chocolate
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 # Install Software
+choco install -y 7zip
 choco install -y googlechrome
 choco install -y dbeaver
 choco install -y filezilla
 choco install -y gitahead
 choco install -y gitkraken
+choco install -y far
+choco install -y kubernetes-cli
 choco install -y mc
 choco install -y microsoft-windows-terminal
 choco install -y mysql-cli
@@ -22,7 +27,9 @@ choco install -y mysql.workbench
 choco install -y notepadplusplus
 choco install -y slack
 choco install -y telegram.install
+choco install -y totalcommander
 choco install -y virtualbox
+choco install -y winrar
 choco install -y wget
 choco install -y wireshark
 choco install -y xming
