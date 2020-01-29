@@ -21,6 +21,7 @@ choco install -y gitkraken
 choco install -y far
 choco install -y kubernetes-cli
 choco install -y microsoft-windows-terminal
+choco install -y minikube
 choco install -y mysql-cli
 choco install -y mysql.workbench
 choco install -y notepadplusplus
