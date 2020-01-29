@@ -20,7 +20,6 @@ choco install -y gitahead
 choco install -y gitkraken
 choco install -y far
 choco install -y kubernetes-cli
-choco install -y mc
 choco install -y microsoft-windows-terminal
 choco install -y mysql-cli
 choco install -y mysql.workbench
@@ -39,10 +38,15 @@ Enable-WindowsOptionalFeature -NoRestart -Online -FeatureName Microsoft-Windows-
 #restart-computer
 #Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile Ubuntu.appx -UseBasicParsing
 
+# Install Midnight Commander
+choco install -y mc
+((Get-Content -path "$env:USERPROFILE\Midnight Commander\ini" -Raw) -replace 'skin=default','skin=darkfar') | Set-Content -Path "$env:USERPROFILE\Midnight Commander\ini
+
 # Install MobaXterm
 choco install -y mobaxterm
 #Invoke-WebRequest -Uri https://github.com/dracula/mobaxterm/archive/master.zip -OutFile $env:USERPROFILE\Downloads\mobaxterm-darkula.zip
 #Expand-Archive $env:USERPROFILE\Downloads\mobaxterm-darkula.zip -DestinationPath $env:USERPROFILE\Downloads\mobaxterm-darkula
+((Get-Content -path $env:USERPROFILE\Documents\MobaXterm\MobaXterm.ini -Raw) -replace 'SkinName3=Windows normal theme','SkinName3=Windows dark theme') | Set-Content -Path $env:USERPROFILE\Documents\MobaXterm\MobaXterm.ini
 
 # Install docker for Windows only if Virtualbox not installed
 if (Test-Path 'C:\Program Files\Oracle\VirtualBox\VirtualBox.exe') {
