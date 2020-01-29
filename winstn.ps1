@@ -34,29 +34,43 @@ choco install -y wget
 choco install -y wireshark
 choco install -y xming
 
-# Install wsl
-Enable-WindowsOptionalFeature -NoRestart -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-#restart-computer
-#Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile Ubuntu.appx -UseBasicParsing
+function Install-SoftWithSettings
+{
+  # Install wsl
+  Enable-WindowsOptionalFeature -NoRestart -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+  #restart-computer
+  #Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile Ubuntu.appx -UseBasicParsing
 
-# Install Midnight Commander
-choco install -y mc
-((Get-Content -path "$env:USERPROFILE\Midnight Commander\ini" -Raw) -replace 'skin=default','skin=darkfar') | Set-Content -Path "$env:USERPROFILE\Midnight Commander\ini
+  # Install Midnight Commander
+  choco install -y mc
+  ((Get-Content -path "$env:USERPROFILE\Midnight Commander\ini" -Raw) -replace 'skin=default','skin=darkfar') | Set-Content -Path "$env:USERPROFILE\Midnight Commander\ini"
 
-# Install MobaXterm
-choco install -y mobaxterm
-#Invoke-WebRequest -Uri https://github.com/dracula/mobaxterm/archive/master.zip -OutFile $env:USERPROFILE\Downloads\mobaxterm-darkula.zip
-#Expand-Archive $env:USERPROFILE\Downloads\mobaxterm-darkula.zip -DestinationPath $env:USERPROFILE\Downloads\mobaxterm-darkula
-((Get-Content -path $env:USERPROFILE\Documents\MobaXterm\MobaXterm.ini -Raw) -replace 'SkinName3=Windows normal theme','SkinName3=Windows dark theme') | Set-Content -Path $env:USERPROFILE\Documents\MobaXterm\MobaXterm.ini
+  # Install MobaXterm
+  choco install -y mobaxterm
+  #Invoke-WebRequest -Uri https://github.com/dracula/mobaxterm/archive/master.zip -OutFile $env:USERPROFILE\Downloads\mobaxterm-darkula.zip
+  #Expand-Archive $env:USERPROFILE\Downloads\mobaxterm-darkula.zip -DestinationPath $env:USERPROFILE\Downloads\mobaxterm-darkula
+  ((Get-Content -path $env:USERPROFILE\Documents\MobaXterm\MobaXterm.ini -Raw) -replace 'SkinName3=Windows normal theme','SkinName3=Windows dark theme') | Set-Content -Path $env:USERPROFILE\Documents\MobaXterm\MobaXterm.ini
 
-# Install docker for Windows only if Virtualbox not installed
-if (Test-Path 'C:\Program Files\Oracle\VirtualBox\VirtualBox.exe') {
-  Write-Warning "VirtualBox is installed"
-} else {
-  Write-Warning "docker-destop will be installing, you cant use docker-desktop and VirtualBox in the same time"
-  choco install docker-desktop -y
+  # Install docker for Windows only if Virtualbox not installed
+  if (Test-Path 'C:\Program Files\Oracle\VirtualBox\VirtualBox.exe') {
+    Write-Warning "VirtualBox is installed"
+  } else {
+    Write-Warning "docker-destop will be installing, you cant use docker-desktop and VirtualBox in the same time"
+    choco install docker-desktop -y
+  }
+
+  # Install Atom
+  choco install atom -y
+  iex "$env:LOCALAPPDATA'\atom\bin\apm' install open-terminal-here git-control git-log git-plus tool-bar git-plus-toolbar autocomplete-python kite svn blame ansible-vault markdown-preview-enhanced atom-inline-blame language-powershell"
 }
 
-# Install Atom
-choco install atom -y
-iex "$env:LOCALAPPDATA'\atom\bin\apm' install open-terminal-here git-control git-log git-plus tool-bar git-plus-toolbar autocomplete-python kite svn blame ansible-vault markdown-preview-enhanced atom-inline-blame"
+
+function Install-ADModule {
+  Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/jurinva/workstation-setup/raw/master/scripts/winstn/Install-ADModule.ps1'))
+}
+
+function Main {
+  Install-SoftWithSettings
+}
+
+Main
