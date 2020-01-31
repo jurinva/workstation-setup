@@ -1,4 +1,8 @@
-# Install last stable release
+# Must be run with Administrator privileges
+# Befor run this script you must allow to run ps scripts "Set-ExecutionPolicy Unresticted"
+#
+
+# Install last stable Windows 10 release
 if ([System.Environment]::OSVersion.Version.Build -lt 18363) {
   Invoke-WebRequest -Uri Invoke-WebRequest -Uri https://go.microsoft.com/fwlink/?LinkID=799445 -OutFile $env:USERPROFILE\Downloads\Windows10Upgrade9252.exe
   cd $env:USERPROFILE\Downloads
@@ -15,22 +19,26 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 choco install -y 7zip
 choco install -y googlechrome
 choco install -y dbeaver
+choco install -y dbforge-mysql-studio-exp
 choco install -y filezilla
 choco install -y gitahead
 choco install -y gitkraken
 choco install -y far
+choco install -y iperf3
 choco install -y kubernetes-cli
 choco install -y microsoft-windows-terminal
-choco install -y minikube
 choco install -y mysql-cli
 choco install -y mysql.workbench
+choco install -y nmap
 choco install -y notepadplusplus
 choco install -y slack
 choco install -y telegram.install
+choco install -y tortoisesvn
 choco install -y totalcommander
 choco install -y virtualbox
 choco install -y winrar
 choco install -y wget
+choco install -y windirstat
 choco install -y wireshark
 choco install -y xming
 
@@ -67,6 +75,11 @@ function Install-SoftWithSettings
 
 function Install-ADModule {
   Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/jurinva/workstation-setup/raw/master/scripts/winstn/Install-ADModule.ps1'))
+}
+
+function Set-MiniKube {
+  choco install -y minikube
+  minikube start --vm-driver=virtualbox
 }
 
 function Main {
