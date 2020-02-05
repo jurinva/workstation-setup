@@ -36,6 +36,7 @@ choco install -y mysql.workbench
 choco install -y nmap
 choco install -y notepadplusplus
 choco install -y slack
+choco install -y speedfan
 choco install -y telegram.install
 choco install -y tortoisesvn
 choco install -y totalcommander
