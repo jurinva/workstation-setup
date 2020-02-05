@@ -204,6 +204,15 @@ function Uinstall() {
 
 # Install Firefox Add-ons
   firefox https://addons.mozilla.org/firefox/downloads/file/1754702/keepassxc_browser-1.4.3-fx.xpi?src=dp-btn-primary
+
+# Ubuntu 16.04 dark theme
+  sudo add-apt-repository ppa:noobslab/themes
+  sudo apt-get update
+  sudo apt-get install arc-theme
+  sudo apt-get install arc-flatabulous-theme
+#  gsettings set org.gnome.desktop.interface gtk-theme "Arc-Flatabulous-Dark"
+#  gsettings set org.gnome.desktop.interface icon-theme 'YourIconTheme'
+#  gsettings set org.gnome.desktop.wm.preferences theme "YourWindowTheme"
 }
 
 function Usettings() {

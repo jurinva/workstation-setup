@@ -2,6 +2,9 @@
 # Befor run this script you must allow to run ps scripts "Set-ExecutionPolicy Unresticted"
 #
 
+# Enable Windows 10 dark theme
+New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 0
+
 # Install last stable Windows 10 release
 if ([System.Environment]::OSVersion.Version.Build -lt 18363) {
   Invoke-WebRequest -Uri Invoke-WebRequest -Uri https://go.microsoft.com/fwlink/?LinkID=799445 -OutFile $env:USERPROFILE\Downloads\Windows10Upgrade9252.exe
@@ -26,6 +29,7 @@ choco install -y gitkraken
 choco install -y far
 choco install -y iperf3
 choco install -y kubernetes-cli
+choco install -y less
 choco install -y microsoft-windows-terminal
 choco install -y mysql-cli
 choco install -y mysql.workbench
@@ -77,7 +81,7 @@ function Install-ADModule {
   Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/jurinva/workstation-setup/raw/master/scripts/winstn/Install-ADModule.ps1'))
 }
 
-function Set-MiniKube {
+function Install-MiniKube {
   choco install -y minikube
   minikube start --vm-driver=virtualbox
 }
