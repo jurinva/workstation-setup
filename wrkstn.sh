@@ -84,7 +84,7 @@ function Uinstall() {
 # Install Atom
   echo -e "\e[31m install Atom \\n \e[0m"
   curl -L -o/tmp/atom.deb "https://atom.io/download/deb" && sudo dpkg -i /tmp/atom.deb
-  apm install open-terminal-here git-control git-log git-plus tool-bar git-plus-toolbar autocomplete-python kite svn blame ansible-vault markdown-preview-enhanced atom-inline-blame
+  apm install open-terminal-here git-control git-log git-plus tool-bar git-plus-toolbar autocomplete-python kite svn blame ansible-vault markdown-preview-enhanced atom-inline-blame sort-selected-elements
 # Manuals:
 # https://github.com/sydro/atom-ansible-vault
 
@@ -124,6 +124,10 @@ function Uinstall() {
   echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
   sudo apt-get update
   sudo apt-get install -y kubectl
+
+# Install kubernetic
+  curl -L -o/tmp/Kubernetic.tar.gz https://kubernetic.s3.amazonaws.com/Kubernetic-2.4.3.tar.gz
+  tar -xvzf /tmp/Kubernetic.tar.gz -C ~/bin/
 
 # Install Project Atomic
 #  echo -e "\e[31m Install Project Atomic \\n \e[0m"
@@ -208,11 +212,20 @@ function Uinstall() {
 # Ubuntu 16.04 dark theme
   sudo add-apt-repository ppa:noobslab/themes
   sudo apt-get update
-  sudo apt-get install arc-theme
-  sudo apt-get install arc-flatabulous-theme
+  if [ $(lsb_release -r | awk '{ print $2 }') == '16.04' ]; then
+    sudo apt-get install arc-theme
+    sudo apt-get install arc-flatabulous-theme
 #  gsettings set org.gnome.desktop.interface gtk-theme "Arc-Flatabulous-Dark"
 #  gsettings set org.gnome.desktop.interface icon-theme 'YourIconTheme'
 #  gsettings set org.gnome.desktop.wm.preferences theme "YourWindowTheme"
+  else echo 2
+    sudo apt-get install plane-theme
+    gsettings set org.gnome.desktop.interface gtk-theme "Plane-dark"
+  fi
+# Gitk dark theme
+  curl -L -o/tmp/gitk.zip https://github.com/dracula/gitk/archive/master.zip
+  unzip /tmp/gitk.zip
+  mv /tmp/gitk-master/gitk ~/.config/git/gitk
 }
 
 function Usettings() {
