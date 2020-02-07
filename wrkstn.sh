@@ -222,10 +222,16 @@ function Uinstall() {
     sudo apt-get install plane-theme
     gsettings set org.gnome.desktop.interface gtk-theme "Plane-dark"
   fi
+
 # Gitk dark theme
   curl -L -o/tmp/gitk.zip https://github.com/dracula/gitk/archive/master.zip
   unzip /tmp/gitk.zip
   mv /tmp/gitk-master/gitk ~/.config/git/gitk
+
+# Geany dark theme
+  mkdir ~/.config/geany/colorschemes/
+  curl -L -o ~/.config/geany/colorschemes/darcula.conf https://raw.github.com/geany/geany-themes/master/colorschemes/darcula.conf
+  sed -i 's/color_scheme=/color_scheme=darcula.conf/g' ~/.config/geany/geany.conf
 }
 
 function Usettings() {
