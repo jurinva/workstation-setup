@@ -218,7 +218,7 @@ function Uinstall() {
 #  gsettings set org.gnome.desktop.interface gtk-theme "Arc-Flatabulous-Dark"
 #  gsettings set org.gnome.desktop.interface icon-theme 'YourIconTheme'
 #  gsettings set org.gnome.desktop.wm.preferences theme "YourWindowTheme"
-  else echo 2
+  else
     sudo apt-get install plane-theme
     gsettings set org.gnome.desktop.interface gtk-theme "Plane-dark"
   fi
