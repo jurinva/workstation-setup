@@ -232,6 +232,10 @@ function Uinstall() {
   mkdir ~/.config/geany/colorschemes/
   curl -L -o ~/.config/geany/colorschemes/darcula.conf https://raw.github.com/geany/geany-themes/master/colorschemes/darcula.conf
   sed -i 's/color_scheme=/color_scheme=darcula.conf/g' ~/.config/geany/geany.conf
+
+# Midnight Commander dark theme
+  sed -i 's/skin=default/skin=xoria256/g' ~/.config/mc/ini
+
 }
 
 function Usettings() {

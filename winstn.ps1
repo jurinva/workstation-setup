@@ -56,7 +56,7 @@ function Install-SoftWithSettings
 
   # Install Midnight Commander
   choco install -y mc
-  ((Get-Content -path "$env:USERPROFILE\Midnight Commander\ini" -Raw) -replace 'skin=default','skin=darkfar') | Set-Content -Path "$env:USERPROFILE\Midnight Commander\ini"
+  ((Get-Content -path "$env:USERPROFILE\Midnight Commander\ini" -Raw) -replace 'skin=default','skin=xoria256') | Set-Content -Path "$env:USERPROFILE\Midnight Commander\ini"
 
   # Install MobaXterm
   choco install -y mobaxterm

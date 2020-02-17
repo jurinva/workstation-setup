@@ -37,9 +37,12 @@
   curl -s https://packagecloud.io/install/repositories/asbru-cm/asbru-cm/script.deb.sh | sudo bash
   sudo apt-get -y install asbru-cm
 
-  echo -e "\e[31m Install Keepass\\n \e[0m"
 # Install KeepassXC
+  echo -e "\e[31m Install Keepass\\n \e[0m"
   sudo add-apt-repository -y ppa:phoerious/keepassxc && sudo apt -y install keepassxc
 
 # Install Firefox Add-ons
   firefox https://addons.mozilla.org/firefox/downloads/file/1754702/keepassxc_browser-1.4.3-fx.xpi?src=dp-btn-primary
+
+# Midnight Commander dark theme
+  sed -i 's/skin=default/skin=xoria256/g' ~/.config/mc/ini
