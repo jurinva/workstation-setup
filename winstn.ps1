@@ -33,6 +33,7 @@ choco install -y less
 choco install -y microsoft-windows-terminal
 choco install -y mysql-cli
 choco install -y mysql.workbench
+choco install -y nano
 choco install -y nmap
 choco install -y notepadplusplus
 choco install -y slack
