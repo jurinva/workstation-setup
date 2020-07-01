@@ -94,6 +94,11 @@ function Install-MiniKube {
   minikube start --vm-driver=virtualbox
 }
 
+function WSL-Setup {
+  Write-Host "Install mc inside wsl"
+  wsl sudo apt update `&`& sudo apt install mc
+}
+
 function Main {
   Install-SoftWithSettings
 }
