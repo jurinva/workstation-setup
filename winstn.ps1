@@ -75,7 +75,7 @@ function Install-SoftWithSettings
 
   # Install Atom
   choco install atom -y
-  iex "$env:LOCALAPPDATA'\atom\bin\apm' install open-terminal-here git-control git-log git-plus tool-bar git-plus-toolbar autocomplete-python kite svn blame ansible-vault markdown-preview-enhanced atom-inline-blame language-powershell"
+  iex "$env:LOCALAPPDATA'\atom\bin\apm' install open-terminal-here git-control git-log git-plus tool-bar git-plus-toolbar autocomplete-python kite svn blame ansible-vault markdown-preview-enhanced atom-inline-blame language-powershell atom-jinja2"
 
   # Install Notepad++ plugins
   Invoke-WebRequest -Uri https://github.com/morbac/xmltools/releases/download/3.0.4.2/XMLTools-3.0.4.2-x64.zip -OutFile $env:USERPROFILE\Downloads\XMLTools-3.0.4.2-x64.zip
@@ -99,4 +99,3 @@ function Main {
 }
 
 Main
-
