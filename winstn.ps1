@@ -23,6 +23,7 @@ choco install -y 7zip
 choco install -y googlechrome
 choco install -y dbeaver
 choco install -y dbforge-mysql-studio-exp
+choco install -y discord
 choco install -y filezilla
 choco install -y gitahead
 choco install -y gitkraken
@@ -92,6 +93,18 @@ function Install-ADModule {
 function Install-MiniKube {
   choco install -y minikube
   minikube start --vm-driver=virtualbox
+}
+
+function WSL-Setup {
+  Write-Host "Install mc inside wsl"
+  wsl sudo apt update `&`& sudo apt install mc
+}
+
+function Setup-Station {
+# for HP Elitbook
+  Invoke-WebRequest -Uri Invoke-WebRequest -Uri https://ftp.hp.com/pub/softlib/software13/HPSA/HPSupportSolutionsFramework-12.15.14.3.exe -OutFile $env:USERPROFILE\Downloads\HPSupportSolutionsFramework-12.15.14.3.exe
+  cd $env:USERPROFILE\Downloads
+  .\HPSupportSolutionsFramework-12.15.14.3.exe
 }
 
 function Main {
